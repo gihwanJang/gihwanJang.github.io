@@ -174,21 +174,21 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-221": {
+"title": "leetcode - leetcode 221",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;0과 1로 채워진 (m X n)형태의 이진 행렬이 주어졌을때 '1'로만 이루어진 가장 큰 정사각형을 찾고 넓이를 반환 하시오.&lt;풀이&gt;&bull;행렬의 좌표인 (r,c)가 주어졌을때 해당 좌표의 오른쪽, 아래쪽, 대각선쪽 즉(r,c+1), (r+1,c), (r+1,c+1)이 존재하면 넓이 4의 정사각형이 존재한다.&bull;(r,c)를 포함하는 한 변의 좌표수가 n인 정사각형이 주어졌을 때 n+1일때도 만족한다는 것을 확인하려면 해당 정사각형의 우측변의 좌표들 즉 (r+n, c+0 ~ n) 좌표들이 위의 조건을 만족해야하고 아래측변의 좌표들 즉 (r+0 ~ n, c+n) 좌표들이 위의 조건을 만족해야한다.1. 행렬의 모든 좌표인덱스에 접근하여 0이 아니면 넓이가 4인 정사각형인지 판별한다.2. 넓이가 4가 아니면 넓이가 1이고 4이면 반복하여 n+1의 정사각형도 되는지 확인한다.&lt;Coding&gt;class Solution {\tprivate int measureSqareSize(char[][] matrix,int r, int c) {\t\tint size = matrix[r][c]=='1' ? 1:0;\t\tloop:\t\twhile(true) {\t\t\tif(size==0) break;\t\t\telse {\t\t\t\tfor(int i=0; i&lt;size; ++i) {\t\t\t\t\tif(!checkSqare(matrix,r+size-1,c+i)) break loop;\t\t\t\t\tif(!checkSqare(matrix,r+i,c+size-1)) break loop;\t\t\t\t}\t\t\t\t++size;\t\t\t}\t\t}\t\treturn size*size;\t}\t\tprivate boolean checkSqare(char[][] matrix, int r, int c) {\t\tif(locState(matrix,r,c+1)&amp;&amp;locState(matrix,r+1,c)&amp;&amp;locState(matrix,r+1,c+1)) {\t\t\tif(matrix[r][c]=='1'&amp;&amp;matrix[r][c+1]=='1'&amp;&amp;matrix[r+1][c]=='1'&amp;&amp;matrix[r+1][c+1]=='1')\t\t\t\treturn true;\t\t}\t\treturn false;\t}\t\tprivate boolean locState(char[][] matrix, int r, int c) {\t\tif(r&gt;=0 &amp;&amp; r&lt;=matrix.length-1 &amp;&amp; c&gt;=0 &amp;&amp; c&lt;=matrix[r].length-1)return true;\t\telse return false;\t}\t    public int maximalSquare(char[][] matrix) {    \tif(matrix.length==1&amp;&amp;matrix[0].length==1&amp;&amp;matrix[0][0]=='0')return 0;    \tif(matrix.length==1&amp;&amp;matrix[0].length==1&amp;&amp;matrix[0][0]=='1')return 1;    \tint max=0;    \tfor(int r=0; r&lt;matrix.length; ++r) {\t\t\tfor(int c=0; c&lt;matrix[r].length; ++c) {\t\t\t\tmax=measureSqareSize(matrix,r,c)&gt;max ? measureSqareSize(matrix,r,c):max;\t\t\t}\t\t}    \treturn max;    }}&lt;설명&gt;private boolean locState(char[][] matrix, int r, int c) {\tif(r&gt;=0 &amp;&amp; r&lt;=matrix.length-1 &amp;&amp; c&gt;=0 &amp;&amp; c&lt;=matrix[r].length-1)return true;\telse return false;}우선 해당 좌표가 행렬안에 존재하는 좌표인지 판별하는 함수를 작성하였다.private boolean checkSqare(char[][] matrix, int r, int c) {\tif(locState(matrix,r,c+1)&amp;&amp;locState(matrix,r+1,c)&amp;&amp;locState(matrix,r+1,c+1)) {\t\tif(matrix[r][c]=='1'&amp;&amp;matrix[r][c+1]=='1'&amp;&amp;matrix[r+1][c]=='1'&amp;&amp;matrix[r+1][c+1]=='1')\t\t\treturn true;\t}\treturn false;}넓이가 4인 정사각형을 판별하는 함수이다. (r, c+1), (r+1, c), (r+1, c+1) 각 좌표들이 존재한다면 해당 좌표들의 값이 1인지 확인후 1이면 true를 아니면 false를 반환한다.private int measureSqareSize(char[][] matrix,int r, int c) {\tint size = matrix[r][c]=='1' ? 1:0;\tloop:\twhile(true) {\t\tif(size==0) break;\t\telse {\t\t\tfor(int i=0; i&lt;size; ++i) {\t\t\t\tif(!checkSqare(matrix,r+size-1,c+i)) break loop;\t\t\t\tif(!checkSqare(matrix,r+i,c+size-1)) break loop;\t\t\t}\t\t\t++size;\t\t}\t}\treturn size*size;}넓이가 4인 정사각형을 판별하는 함수이다. (r, c+1), (r+1, c), (r+1, c+1) 각 좌표들이 존재한다면 해당 좌표들의 값이 1인지 확인후 1이면 true를 아니면 false를 반환한다.private int measureSqareSize(char[][] matrix,int r, int c) {\tint size = matrix[r][c]=='1' ? 1:0;\tloop:\twhile(true) {\t\tif(size==0) break;\t\telse {\t\t\tfor(int i=0; i&lt;size; ++i) {\t\t\t\tif(!checkSqare(matrix,r+size-1,c+i)) break loop;\t\t\t\tif(!checkSqare(matrix,r+i,c+size-1)) break loop;\t\t\t}\t\t\t++size;\t\t}\t}\treturn size*size;}좌표 (r,c)를 받아 넓이가 n일때 n+1도 해당되는지 확인하는 함수로서 최종 넓이인 n^2을 반환해준다.public int maximalSquare(char[][] matrix) {\tif(matrix.length==1&amp;&amp;matrix[0].length==1&amp;&amp;matrix[0][0]=='0')return 0;\tif(matrix.length==1&amp;&amp;matrix[0].length==1&amp;&amp;matrix[0][0]=='1')return 1;\tint max=0;\tfor(int r=0; r&lt;matrix.length; ++r) {\t\tfor(int c=0; c&lt;matrix[r].length; ++c) {\t\t\tmax=measureSqareSize(matrix,r,c)&gt;max ? measureSqareSize(matrix,r,c):max;\t\t}\t}   \treturn max;}최종적으로 계산을 하는 함수로 행렬의 원소가 1개일때 값이 0이면 0을 반환하고 1이면 1을 반환한다. 원소의 갯수가 1개 이상일때는 각 좌표들의 인덱스에 모두 접근하여 각 좌표의 정사각형 크기를 구하고 가장큰 값을 반환해 준다.",
+"url": "/leetcode-221"
+}
+,
+
 "python-basic": {
 "title": "python - python 기본",
 "author": "gihwan319",
 "category": "",
 "content": "- python 목차-      python-basic이 글은 python에 관한 글입니다.print(\"hello world\")",
 "url": "/python-basic"
-}
-,
-
-"leetcode-basic": {
-"title": "leetcode - leetcode 기본",
-"author": "gihwan319",
-"category": "",
-"content": "이 글은 leetcode에 관한 글입니다.",
-"url": "/leetcode-basic"
 }
 
 
