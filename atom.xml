@@ -8,15 +8,25 @@
     
       
       <item>
+        <title>DataStructure - 자료구조Ch.01</title>
+        
+          <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;자료구조 Ch.01 : 자료구조란?&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 21 Dec 2021 16:44:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/dataStructure-ch01</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/dataStructure-ch01</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 221</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
 &lt;p&gt;0과 1로 채워진 (m X n)형태의 이진 행렬이 주어졌을때 '1'로만 이루어진 가장 큰 정사각형을 찾고 넓이를 반환 하시오.&lt;/p&gt;
-&lt;p&gt;&amp;lt;풀이&amp;gt;&lt;/p&gt;
-&lt;p&gt;&amp;bull;행렬의 좌표인 (r,c)가 주어졌을때 해당 좌표의 오른쪽, 아래쪽, 대각선쪽 즉(r,c+1), (r+1,c), (r+1,c+1)이 존재하면 넓이 4의 정사각형이 존재한다.&lt;/p&gt;
-&lt;p&gt;&amp;bull;(r,c)를 포함하는 한 변의 좌표수가 n인 정사각형이 주어졌을 때 n+1일때도 만족한다는 것을 확인하려면 해당 정사각형의 우측변의 좌표들 즉 (r+n, c+0 ~ n) 좌표들이 위의 조건을 만족해야하고 아래측변의 좌표들 즉 (r+0 ~ n, c+n) 좌표들이 위의 조건을 만족해야한다.&lt;/p&gt;
-&lt;p&gt;1. 행렬의 모든 좌표인덱스에 접근하여 0이 아니면 넓이가 4인 정사각형인지 판별한다.&lt;/p&gt;
-&lt;p&gt;2. 넓이가 4가 아니면 넓이가 1이고 4이면 반복하여 n+1의 정사각형도 되는지 확인한다.&lt;/p&gt;
 
 </description>
         
