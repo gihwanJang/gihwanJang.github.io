@@ -372,6 +372,7 @@ into the {body} of the default.hbs template -->
 			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="k">this</span><span class="o">.</span><span class="na">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
 		<span class="o">}</span>
 		<span class="k">this</span><span class="o">.</span><span class="na">arr</span><span class="o">=</span><span class="n">arr</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">capacity</span><span class="o">*=</span><span class="mi">2</span><span class="o">;</span>
 	<span class="o">}</span>
 	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">moveRight</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
@@ -749,6 +750,7 @@ size를 초과하는 인덱스를 접근하기 때문에 해당 메소드 실행
 		<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="k">this</span><span class="o">.</span><span class="na">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
 	<span class="o">}</span>
 	<span class="k">this</span><span class="o">.</span><span class="na">arr</span><span class="o">=</span><span class="n">arr</span><span class="o">;</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">capacity</span><span class="o">*=</span><span class="mi">2</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -983,6 +985,15 @@ List의 추가연산은 최악의 경우 O(n)이 걸리지만, (*분할상환분
                                     
                                         
                                         
+                                            <li><a href="/dataStructure-ch02-3">DataStructure - 자료구조Ch.02-3</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/dataStructure-ch02-2">DataStructure - 자료구조Ch.02-2</a></li>
                                         
                                     
@@ -1012,7 +1023,7 @@ List의 추가연산은 최악의 경우 O(n)이 걸리지만, (*분할상환분
                         <footer class="read-next-card-footer">
                             <a href="/tag/datastructure/">
                                 
-                                    See all 2 posts  →
+                                    See all 3 posts  →
                                 
                             </a>
                         </footer>
@@ -1178,7 +1189,7 @@ List의 추가연산은 최악의 경우 O(n)이 걸리지만, (*분할상환분
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://gihwanJang.github.io/">Learning to coding</a> &copy; 2021</section>
+                <section class="copyright"><a href="https://gihwanJang.github.io/">Learning to coding</a> &copy; 2022</section>
                 <nav class="site-footer-nav">
                     <a href="/">Latest Posts</a>
                 </nav>
