@@ -8,6 +8,25 @@
     
       
       <item>
+        <title>leetcode - leetcode 7</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+32bit의 정수가 주어질때 해당 정수를 반전시켜 반환하시오.&lt;br /&gt;
+만약 반정시킨 정수가 32bit의 범위 즉[-(2^31), (2^31) - 1] 범위 밖 이면 0을 반환하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 16 Jan 2022 03:33:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-7</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-7</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.02-3</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
