@@ -8,6 +8,31 @@
     
       
       <item>
+        <title>leetcode - leetcode 6</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;문자열 &quot;PAYPALISHIRING&quot;은 다음과 같이 주어진 행 수에 지그재그 패턴으로 작성됩니다.&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+P  A  H  N&lt;br /&gt;
+APLSIIG&lt;br /&gt;
+Y  I  R
+&lt;/div&gt;
+&lt;p&gt;
+그런 다음 한 줄씩 읽어 &quot;PAHNAPLSIIGYIR&quot;문자열을 만듭니다.&lt;br /&gt;
+문자열과 행수가 주어 졌을때 위의 문자열을 반환하는 코드를 작성하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 16 Jan 2022 17:22:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-6</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-6</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 7</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
