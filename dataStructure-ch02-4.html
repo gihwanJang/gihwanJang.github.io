@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>DataStructure - 자료구조Ch.02-4</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- custom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+    <!-- webfont-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <!-- syntax.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="coding 학습 블로그" />
+    <link rel="shortcut icon" href="https://gihwanJang.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://gihwanJang.github.io/dataStructure-ch02-4" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Learning to coding" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DataStructure - 자료구조Ch.02-4" />
+    <meta property="og:description" content="자료구조 Ch.02 : 리스트 6. 비정렬 단일 연결 리스트(UnsortedSingleLinkedList) 지금까지는 배열을 이용한 리스트를 post해왔습니다. 이번 post부터는 배열리스트가 아닌 연결리스트에 대해 post해 보려고 합니다. 연결리스트는 배열리스트 처럼 데이터를 저장하는 일반 자료형를 사용하지 않고 데이터를 담고있는 Node를 내부 클래스로 별도로 만들어 사용합니다. 해당 Node의 구성에 따라 연결 리스트의 종류가 나누어 집니다. Node가" />
+    <meta property="og:url" content="https://gihwanJang.github.io/dataStructure-ch02-4" />
+    <meta property="og:image" content="https://gihwanJang.github.io/assets/built/images/dataStruct.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-01-17T20:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-01-17T20:00:00+09:00" />
+    <meta property="article:tag" content="Datastructure" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DataStructure - 자료구조Ch.02-4" />
+    <meta name="twitter:description" content="자료구조 Ch.02 : 리스트 6. 비정렬 단일 연결 리스트(UnsortedSingleLinkedList) 지금까지는 배열을 이용한 리스트를 post해왔습니다. 이번 post부터는 배열리스트가 아닌 연결리스트에 대해 post해 보려고 합니다. 연결리스트는 배열리스트 처럼 데이터를 저장하는 일반 자료형를 사용하지 않고 데이터를 담고있는 Node를 내부 클래스로 별도로 만들어 사용합니다. 해당 Node의 구성에 따라 연결 리스트의 종류가 나누어 집니다. Node가" />
+    <meta name="twitter:url" content="https://gihwanJang.github.io/" />
+    <meta name="twitter:image" content="https://gihwanJang.github.io/assets/built/images/dataStruct.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Learning to coding" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Datastructure" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Learning to coding",
+        "logo": "https://gihwanJang.github.io/"
+    },
+    "url": "https://gihwanJang.github.io/dataStructure-ch02-4",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://gihwanJang.github.io/assets/built/images/dataStruct.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://gihwanJang.github.io/dataStructure-ch02-4"
+    },
+    "description": "자료구조 Ch.02 : 리스트 6. 비정렬 단일 연결 리스트(UnsortedSingleLinkedList) 지금까지는 배열을 이용한 리스트를 post해왔습니다. 이번 post부터는 배열리스트가 아닌 연결리스트에 대해 post해 보려고 합니다. 연결리스트는 배열리스트 처럼 데이터를 저장하는 일반 자료형를 사용하지 않고 데이터를 담고있는 Node를 내부 클래스로 별도로 만들어 사용합니다. 해당 Node의 구성에 따라 연결 리스트의 종류가 나누어 집니다. Node가"
+}
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500744719024251"
+    crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="DataStructure - 자료구조Ch.02-4" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://gihwanJang.github.io/">Learning to coding</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-leetcode" role="menuitem"><a href="/tag/leetcode/">Leetcode</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-datastructure" role="menuitem"><a href="/tag/datastructure/">Datastructure</a></li>
+    <li class="nav-java" role="menuitem"><a href="/tag/java/">Java</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+
+
+
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-datastructure post tag-datastructure ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="17 January 2022">17 January 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/datastructure/'>DATASTRUCTURE</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">DataStructure - 자료구조Ch.02-4</h1>
+            </header>
+            <!--
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/dataStruct.png)">
+            </figure>
+            
+            -->
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p style="font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;">
+자료구조 Ch.02 : 리스트
+</p>
+
+<p>6. 비정렬 단일 연결 리스트(UnsortedSingleLinkedList)</p>
+<p>
+지금까지는 배열을 이용한 리스트를 post해왔습니다.<br />
+이번 post부터는 배열리스트가 아닌 연결리스트에 대해 post해 보려고 합니다.<br />
+연결리스트는 배열리스트 처럼 데이터를 저장하는 일반 자료형를 사용하지 않고 데이터를 담고있는 Node를 내부 클래스로 별도로 만들어 사용합니다.<br />
+해당 Node의 구성에 따라 연결 리스트의 종류가 나누어 집니다.<br />
+Node가 데이터인 item과 다음 노드 next만을 가지고 있으면 다음 노드 하나만으로 연결 되기 때문에 단일 연결구조로 분류 되고, Node가 item, next 이전 노드 prev를 가지고 있으면 다음과 이전 두개로 연결 되기 때문에 이중 연결 리스트로 분류 됩니다.<br />
+이외에도 연결리스트는 Node의 연결에 따라 다른 분류로 분류되지만 단일과 이중 연결만을 다루도록 하겠습니다.<br />
+배열기반의 리스트가 있음에도 연결 리스트를 사용하는 이유는 연결 리스트가 가지는 특정 장점이 있기 때문입니다.<br />
+&lt;연결 리스트의 특징&gt;
+1. 용량의 제약이 없습니다.<br />
+-&gt; 배열기반 리스트의 경우에는 처음 지정한 용량을 초과하게 되면 2배의 용량이 되는 배열을 새로 만들어 해당 내용들을 옮겨 새로 만들어 주어야 합니다.<br />
+반면 연결리스트의 경우에는 정해진 용량이 없고 노드를 추가 삭제하여 사용하는 것이기 때문에 공간 부족이나 낭비가 발생하지 않습니다.<br />
+그렇게 때문에 리스트를 사용 할때 이 부분을 고려하여 만약 자신이 사용할 데이터가 용량의 범위가 크게 유동적이거나 미리 알 수 없다면 연결 리스트를 데이터가 정적이고 용량이 딱 정해져 있다면 배열리스트를 사용하는 것이 좋습니다.<br />
+2. 데이터의 삽입과 삭제가 쉽습니다.
+-&gt;배열기반 리스트의 경우 인덱스가 정해져 있고 해당 인덱스를 이용하여 접근해 데이터를 가져오기 때문에 데이터 삽입삭제시 해당 인덱스가 비어있지 않도록 매꾸어주어야 하는데 해당 과정에서 비용이 듭니다.<br />
+반면 연결리스트의 경우 next혹은 prev즉 연결만 바꾸어주면 되기에 삽입과 삭제가 쉽습니다.
+3. 순차접근을 해야합니다.
+-&gt;배열기반 리스트의 경우 인덱스가 있어 임의 접근이 가능합니다.<br />
+반면 연결리스트의 경우 인덱스가 아닌 연결을 따라 접근하는 순차접근만이 가능합니다.
+4. 운영체제의 캐시 지역성을 활용 할 수 없습니다.
+-&gt;배열기반 리스트의 경우 연속된 공간을 받아 오기 때문에 cache locality을 활용하여 성능이 좋습니다.<br />
+반면 연결리스트의 경우 연속된 공간이 아니기 때문에 cache locality을 활용 할 수 없습니다.<br />
+그러므로 성능면에서는 배열기반 리스트에 비해 좋지 않습니다.
+</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Singly_linked_list.png/220px-Singly_linked_list.png" alt="LinkedList" /><br /></p>
+<p>
+(출처: 위키백과)<br />
+그림으로 표현하면 위와 같은 모습입니다.<br />
+각 언어에서 C++에서는 std::list(doubleLinkedList) java에서는 java.util.LinkedList(doubleLinkedList) 파이썬에서는 list package를 추가설치하면 사용 할 수 있습니다.<br />
+내부 동작 및 자세한 생김세는 아래의 코드를 보면 더욱 이해하기 쉽습니다.
+</p>
+
+<p>
+(코드)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">SingleUnsortedLinkedArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;,</span> <span class="nc">Cloneable</span><span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+		<span class="kd">private</span> <span class="nc">Object</span> <span class="n">item</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">value</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="kd">public</span> <span class="nc">Node</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span><span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">cloned</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Node</span><span class="o">)</span><span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+			<span class="k">return</span> <span class="n">cloned</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	
+	<span class="kd">private</span> <span class="kd">class</span> <span class="nc">LinkedListIterator</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;{</span>
+		<span class="kd">private</span>  <span class="kt">int</span> <span class="n">cursor</span> <span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">cursor</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="no">E</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+			<span class="nc">Object</span> <span class="n">val</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="o">++</span><span class="n">cursor</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="k">return</span> <span class="o">(</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">str</span><span class="o">=</span><span class="s">"["</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">str</span><span class="o">+=</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">str</span><span class="o">+=</span><span class="s">", "</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">str</span><span class="o">+</span><span class="s">"]"</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">SingleUnsortedLinkedArrayList</span><span class="o">(){</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">SingleUnsortedLinkedArrayList</span><span class="o">(</span><span class="nc">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">){</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">pushFront</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">==</span><span class="n">o</span><span class="o">)</span><span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">o</span><span class="o">)!=-</span><span class="mi">1</span><span class="o">?</span><span class="kc">true</span><span class="o">:</span><span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Objects</span><span class="o">.</span><span class="na">checkIndex</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">index</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">pushFront</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="n">newNode</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">popFront</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">peekFront</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">head</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">pushBack</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">popBack</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">peekBack</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">val</span><span class="o">)==-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">prev</span><span class="o">=</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">!=</span><span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">==</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">else</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeAll</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">val</span><span class="o">)==-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">prev</span><span class="o">=</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">curr</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">!=</span><span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">==</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="k">else</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">(){</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">LinkedListIterator</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nc">SingleUnsortedLinkedArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span><span class="o">{</span>
+		<span class="nc">SingleUnsortedLinkedArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">cloned</span> <span class="o">=</span> <span class="o">(</span><span class="nc">SingleUnsortedLinkedArrayList</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;)</span><span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">cloned</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="no">E</span> <span class="nl">i:</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">cloned</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+(Node Class)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+		<span class="kd">private</span> <span class="nc">Object</span> <span class="n">item</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">value</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="kd">public</span> <span class="nc">Node</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span><span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">cloned</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Node</span><span class="o">)</span><span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+			<span class="k">return</span> <span class="n">cloned</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+데이터와 연결정보를 저장할 노드 클래스입니다.<br />
+item은 실질적인 데이터를 저장합니다.<br />
+next는 다음 노드의 정보를 저장합니다.<br />
+해당 노드의 생성자는 값을 받아 노드를 생성하게 됩니다.<br />
+clone 메소드는 해당 연결리스트의 clone을 만들때 해당 메소드를 사용하여야하기 때문에 구현하였습니다.
+</p>
+
+<p>
+(맴버변수)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>
+맴버변수는 해당 연결 리스트의 처음과 크기를 나타내는 변수들을 사용하였습니다.<br />
+head : 연결 리스트의 처음을 나타내는 변수입니다.<br />
+size : 크기 정보 즉 노드의 갯수를 저장하는 변수 입니다.<br />
+</p>
+
+<p>
+(Iterator Class)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kd">class</span> <span class="nc">LinkedListIterator</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;{</span>
+		<span class="kd">private</span>  <span class="kt">int</span> <span class="n">cursor</span> <span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">cursor</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="no">E</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+			<span class="nc">Object</span> <span class="n">val</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="o">++</span><span class="n">cursor</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="k">return</span> <span class="o">(</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+연결리스트의 순차접근을 위한 iterator클래스입니다.
+head 부터 차례대로 다음 노드에 접근하여 해당 노드의 값을 반환하고 cursor을 증가 시킵니다.<br />
+cursor이 size와 같아지면 끝나는 즉 처음 노드부터 끝까지 방문하면 끝나는 구조입니다.
+</p>
+
+<p>
+(toString)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">str</span><span class="o">=</span><span class="s">"["</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">str</span><span class="o">+=</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">str</span><span class="o">+=</span><span class="s">", "</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">str</span><span class="o">+</span><span class="s">"]"</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+해당 리스트의 값들을 출력해주는 메소드입니다.<br />
+처음 노드부터 차적으로 접근하여 마지막 노드까지의 값들을 출력해 줍니다.
+</p>
+
+<p>
+(생성자)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nf">SingleUnsortedLinkedArrayList</span><span class="o">(){</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">SingleUnsortedLinkedArrayList</span><span class="o">(</span><span class="nc">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">){</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">pushFront</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+연결 리스트의 생성자입니다.
+SingleUnsortedLinkedArrayList() : 인자를 받지 않고 생성하는 경우 head는 null 로 size는 0으로 초기화 하여 생성합니다.<br />
+SingleUnsortedLinkedArrayList(Object... arr) : 값을 인자로 받아 생성하는 경우 해당 값끝에서 부터 연결리스트 앞에서 부터 차례대로 삽입하여 생성합니다.<br />
+값을 앞에서 부터 삽입할 때에는 pushFront 메소드를 연속적으로 호출하여 삽입하게 됩니다.
+</p>
+
+<p>
+(isEmpty)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트가 비어있는지 확인하는 메소드입니다.<br />
+size가 0 이면 true를 아니면 false를 봔환합니다.
+</p>
+
+<p>
+(size)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트 size를 봔환해주는 메소드입니다.
+</p>
+
+<p>
+(clear)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트를 초기화 해주는 메소드입니다.<br />
+head를 null로 size를 0으로 바꾸어줍니다.
+</p>
+
+<p>
+(indexOf)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">==</span><span class="n">o</span><span class="o">)</span><span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트에 있는 객체의 인덱스를 반환해 주는 메소드입니다.<br />
+우선 isEmpty 메소드를 이용해 리스트가 비어있는지 체크하여 비어있으면 -1을 반환해 줍니다.<br />
+비어있지 않으면 head 부터 순차적으로 노드에 접근하여 해당 객체가 있는지 확인후 있으면 해당 인덱스를 반환해 주고 없으면 -1을 반환해 줍니다.
+</p>
+
+<p>
+(contains)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">o</span><span class="o">)!=-</span><span class="mi">1</span><span class="o">?</span><span class="kc">true</span><span class="o">:</span><span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트에 객체가 있는지 없는지 확인해 주는 메소드입니다.<br />
+indexOf의 메소드를 이용해 -1이면 false를 아니면 true를 반환합니다.
+</p>
+
+<p>
+(get)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Objects</span><span class="o">.</span><span class="na">checkIndex</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">index</span><span class="o">;++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 해당 인덱스의 값을 반환해 주는 메소드입니다.<br />
+Objects의 checkIndex메소드를 이용하여 해당 인덱스가 존재하는지 확인후 있으면 head부터 해당 인덱스까지 순차 접근하여 해당 인덱스의 값을 반환합니다.
+</p>
+
+<p>
+(pushFront)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">pushFront</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="n">newNode</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨앞에 새로운 값을 추가하는 메소드입니다.<br />
+인자로 받은 값을 저장한 노드를 생성후 해당 노드를 next를 head로 연결해 준후 head를 생성한 새노드로 지정하고 size를 증가시킵니다.
+</p>
+
+<p>
+(popFront)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">popFront</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨앞의 값을 삭제하는 메소드입니다.<br />
+head를 head의 next로 바꾼뒤 size를 감소시킵니다.
+</p>
+
+<p>
+(peekFront)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">peekFront</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">head</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨앞의 값을 반환해 주는 메소드입니다.<br />
+head의 값을 반환합니다.
+</p>
+
+<p>
+(pushBack)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">pushBack</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨뒤에 새로운 값을 추가하는 메소드입니다.<br />
+인자로 받은 값을 저장한 노드를 생성후 맨끝 노드까지 순차 접근하여 맨끝 노드의 next를 생성한 새노드로 지정한 후 size를 증가시킵니다.
+</p>
+
+<p>
+(popBack)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">popBack</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨뒤의 값을 삭제하는 메소드입니다.<br />
+맨뒤의 전 노드까지 순차접근하여 해당 노드의 next를 null로 바꾼후 size를 감소시킵니다.
+</p>
+
+<p>
+(peekBack)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">peekBack</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 맨뒤의 값을 반환하는 메소드입니다.<br />
+맨뒤의 노드까지 순차접근하여 해당 노드의 값을 반환합니다.
+</p>
+
+<p>
+(remove)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">val</span><span class="o">)==-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">prev</span><span class="o">=</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">!=</span><span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">==</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="k">else</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 특정 객체 맨앞의 하나를 삭제하는 메소드입니다.<br />
+indexOf 메소드를 이용해 리스트가 비거나 해당 객체가 리스트에 없으면 return합니다<br />
+객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 순차적으로 해당 객체가 있는 노드까지 접근합니다.<br />
+해당 위치의 노드가 head이면 head를 head의 next로 바꾸고 아니면 전 노드의 next를 객체가 있는 노드의 next로 바꾼 후 size를 감소시킵니다.
+</p>
+
+<p>
+(removeAll)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeAll</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">val</span><span class="o">)==-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="nc">Node</span> <span class="n">prev</span><span class="o">=</span><span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">curr</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">!=</span><span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="n">prev</span><span class="o">=</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">==</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="k">else</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="n">curr</span><span class="o">=</span><span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+				<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+리스트의 특정 객체를 모두 삭제하는 메소드입니다.<br />
+indexOf 메소드를 이용해 리스트가 비거나 해당 객체가 리스트에 없으면 return합니다<br />
+객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 순차적으로 마즈막 노드까지 접근합니다.<br />
+이때 현재의 노드의 값이 특정 객이면 해당 위치의 노드가 head이면 head를 head의 next로 바꾸고 아니면 전 노드의 next를 객체가 있는 노드의 next로 바꾼 후 size를 감소시킵니다.
+</p>
+
+<p>(정리)</p>
+<body>
+	<table border="1" align="center">
+		<th>contains</th>
+		<th>pushFront</th>
+		<th>pushBack</th>
+		<th>popFront</th>
+		<th>popBack</th>
+		<th>remove</th>
+		<tr align="center">
+			<td>O(n)</td>
+			<td>O(1)</td>
+			<td>O(n)</td>
+			<td>O(1)</td>
+			<td>O(n)</td>
+			<td>O(n)</td>
+		</tr>
+	</table>
+</body>
+<p>
+위의 표와 같이 주요 메소드들의 시간 복잡도를 정리해 보았습니다.<br />
+이번 post에서는 head만을 유지하였지만 다음 post에서는 tail도 유지하는 버전을 보도록 하겠습니다.
+</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            <!--
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to Learning to coding</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+            -->
+            
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author.png" alt="gihwan319" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/gihwan319">gihwan319</a></h4>
+                                
+                                    <p>Read <a href="/author/gihwan319">more posts</a> by this author.</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/gihwan319">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://gihwanJang.github.io/dataStructure-ch02-4';
+                            var this_page_identifier = '/dataStructure-ch02-4';
+                            var this_page_title = 'DataStructure - 자료구조Ch.02-4';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/cover1.png)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Learning to coding &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/datastructure/">Datastructure</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/dataStructure-ch02-3">DataStructure - 자료구조Ch.02-3</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/dataStructure-ch02-2">DataStructure - 자료구조Ch.02-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/dataStructure-ch02">DataStructure - 자료구조Ch.02-1</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/datastructure/">
+                                
+                                    See all 4 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/leetcode-6">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/leetcode.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/leetcode-6">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Leetcode</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">leetcode - leetcode 6</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>&lt;문제&gt; 문자열 "PAYPALISHIRING"은 다음과 같이 주어진 행 수에 지그재그 패턴으로 작성됩니다. P A H N APLSIIG Y I R 그런 다음 한 줄씩 읽어 "PAHNAPLSIIGYIR"문자열을 만듭니다. 문자열과 행수가 주어 졌을때 위의 문자열을 반환하는</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author.png" alt="gihwan319" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/gihwan319/">gihwan319</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://gihwanJang.github.io/">
+            
+            <span>Learning to coding</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">DataStructure - 자료구조Ch.02-4</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=DataStructure+-+%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0Ch.02-4&amp;url=https://gihwanJang.github.io/dataStructure-ch02-4"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://gihwanJang.github.io/dataStructure-ch02-4"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://gihwanJang.github.io/">Learning to coding</a> &copy; 2022</section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+            
+            <h1 class="subscribe-overlay-title">Search Learning to coding</h1>
+            <p class="subscribe-overlay-description">
+            제목 검색 </p>
+            <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+        </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-087KHPSWZY', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>
