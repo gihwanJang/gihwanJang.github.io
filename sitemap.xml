@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://gihwanJang.github.io/dataStructure-ch02-5.html</loc>
+        
+        <lastmod>2022-01-19T02:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://gihwanJang.github.io/leetcode-605.html</loc>
         
         <lastmod>2022-01-18T22:00:00+09:00</lastmod>
