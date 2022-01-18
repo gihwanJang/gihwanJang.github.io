@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-01-17T23:31:50+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">DataStructure - 자료구조Ch.02-4</title><link href="https://gihwanjang.github.io/dataStructure-ch02-4" rel="alternate" type="text/html" title="DataStructure - 자료구조Ch.02-4" /><published>2022-01-17T20:00:00+09:00</published><updated>2022-01-17T20:00:00+09:00</updated><id>https://gihwanjang.github.io/dataStructure-ch02-4</id><content type="html" xml:base="https://gihwanjang.github.io/dataStructure-ch02-4">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T22:20:33+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 605</title><link href="https://gihwanjang.github.io/leetcode-605" rel="alternate" type="text/html" title="leetcode - leetcode 605" /><published>2022-01-18T22:00:00+09:00</published><updated>2022-01-18T22:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-605</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-605">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+일부는 심어지고 일부는 심어지지 않은 긴 화단이 있습니다.&lt;br /&gt;
+그러나 인접한 구획에는 꽃을 심을 수 없습니다.&lt;br /&gt;
+0과 1을 포함하는 정수 배열 화단이 주어지면 여기서 0은 비어 있음을 의미하고 1은 비어 있지 않음을 의미하고 정수 n은 &quot;인접 꽃 없음 규칙&quot;을 위반하지 않고 화단에 n개의 새 꽃을 심을 수 있는 경우 반환합니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: flowerbed = [1,0,0,0,1], n = 1&lt;br /&gt;
+Output: true
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: flowerbed = [1,0,0,0,1], n = 2&lt;br /&gt;
+Output: false
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&amp;bull;n이 0이면 true를 반환합니다.&lt;br /&gt;
+&amp;bull;flowerbed의 길이가 1일때 n이 1이면 true 아니면 false를 반환합니다.&lt;br /&gt;
+&amp;bull;심을 수 있는 자리의 최댓값을 카운트 하기 위해 카운트 변수 num을 0으로 초기화 하고 for문을 통해 flowerbed배열 각 인덱스에 접근을 합니다.&lt;br /&gt;
+&amp;bull;flowerbed의 인덱스의 값이 0일 경우 3가지로 나누어 생각해 볼 수 있습니다.&lt;br /&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    1. 인덱스가 0일 경우
+        &lt;ul class=&quot;txt-box&quot;&gt;
+            &lt;li class=&quot;txt-box__list&quot;&gt;
+            1-1. 우측 인덱스 값이 0일 경우 ++num하여 카운트하고 현제 인덱스를 카운트 했으니 다음 인덱스는 카운트 할 수 없으니 다음 인덱스를 건너뛰기 위해 ++i를 해줍니다.
+            &lt;/li&gt;
+            &lt;li class=&quot;txt-box__list&quot;&gt;
+            1-2. 우측 인덱스 값이 1일 경우 다음 인덱스로 넘어가 확인하게 됩니다.
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    2. 인덱스가 마즈막일 경우
+        &lt;ul class=&quot;txt-box&quot;&gt;
+            &lt;li class=&quot;txt-box__list&quot;&gt;
+            2-1. 좌측 인덱스 값이 0일 경우 ++num하여 카운트합니다.
+            &lt;/li&gt;
+            &lt;li class=&quot;txt-box__list&quot;&gt;
+            2-2. 좌측 인덱스 값이 1일 경우 확인을 끝냅니다.
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    3. 인덱스가 처음과 끝 사이인 경우 좌측과 우측의 값이 0일 경우 ++num하여 카운트하고 다음 인덱스는 카운트 할 수 없으니 다음 인덱스를 건너뛰기 위해 ++i를 해줍니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&amp;bull;flowerbed의 인덱스의 값이 1일 경우 다음 인덱스는 카운트 할 수 없으므로 ++i하여 건너뜁니다.&lt;br /&gt;
+&amp;bull;위의 과정들이 끝나면 심을 수 있는 모든 곳의 카운트가 끝났으니 n과 비쿄하여 카운트보다 n이 작거나 같으면 true 아니면 false를 반환하게 됩니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;canPlaceFlowers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    					&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    					&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    				&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    				&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    				&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flowerbed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    				&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    				&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 1 ms, faster than 92.17% of Java online submissions for Can Place Flowers.&lt;br /&gt;
+Memory Usage: 49.3 MB, less than 24.30% of Java online submissions for Can Place Flowers.&lt;br /&gt;
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 일부는 심어지고 일부는 심어지지 않은 긴 화단이 있습니다. 그러나 인접한 구획에는 꽃을 심을 수 없습니다. 0과 1을 포함하는 정수 배열 화단이 주어지면 여기서 0은 비어 있음을 의미하고 1은 비어 있지 않음을 의미하고 정수 n은 &quot;인접 꽃 없음 규칙&quot;을 위반하지 않고 화단에 n개의 새 꽃을 심을 수 있는 경우 반환합니다.</summary></entry><entry><title type="html">DataStructure - 자료구조Ch.02-4</title><link href="https://gihwanjang.github.io/dataStructure-ch02-4" rel="alternate" type="text/html" title="DataStructure - 자료구조Ch.02-4" /><published>2022-01-17T20:00:00+09:00</published><updated>2022-01-17T20:00:00+09:00</updated><id>https://gihwanjang.github.io/dataStructure-ch02-4</id><content type="html" xml:base="https://gihwanjang.github.io/dataStructure-ch02-4">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
 자료구조 Ch.02 : 리스트
 &lt;/p&gt;
 
@@ -2413,11 +2510,4 @@ Output: 0
 최종적으로 계산을 하는 함수이다.&lt;br /&gt; 
 행렬의 원소가 1개일때 값이 0이면 0을 반환하고 1이면 1을 반환한다.&lt;br /&gt; 
 원소의 갯수가 1개 이상일때는 각 좌표들의 인덱스에 모두 접근하여 각 좌표의 정사각형 크기를 구하고 가장 큰 값을 반환해 준다.
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 0과 1로 채워진 (m X n)형태의 이진 행렬이 주어졌을때 '1'로만 이루어진 가장 큰 정사각형을 찾고 넓이를 반환 하시오.</summary></entry><entry><title type="html">python - python 기본</title><link href="https://gihwanjang.github.io/python-basic" rel="alternate" type="text/html" title="python - python 기본" /><published>2021-12-19T16:45:00+09:00</published><updated>2021-12-19T16:45:00+09:00</updated><id>https://gihwanjang.github.io/python-basic</id><content type="html" xml:base="https://gihwanjang.github.io/python-basic">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;- python 목차-  &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./python-basic&quot;&gt;python-basic&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이 글은 python에 관한 글입니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello world&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>gihwan319</name></author><category term="python" /><summary type="html">- python 목차- python-basic 이 글은 python에 관한 글입니다.</summary></entry></feed>
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 0과 1로 채워진 (m X n)형태의 이진 행렬이 주어졌을때 '1'로만 이루어진 가장 큰 정사각형을 찾고 넓이를 반환 하시오.</summary></entry></feed>

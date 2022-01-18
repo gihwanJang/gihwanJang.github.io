@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 605</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+일부는 심어지고 일부는 심어지지 않은 긴 화단이 있습니다.&lt;br /&gt;
+그러나 인접한 구획에는 꽃을 심을 수 없습니다.&lt;br /&gt;
+0과 1을 포함하는 정수 배열 화단이 주어지면 여기서 0은 비어 있음을 의미하고 1은 비어 있지 않음을 의미하고 정수 n은 &quot;인접 꽃 없음 규칙&quot;을 위반하지 않고 화단에 n개의 새 꽃을 심을 수 있는 경우 반환합니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 18 Jan 2022 22:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-605</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-605</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.02-4</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
