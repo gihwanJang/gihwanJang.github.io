@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 963</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+points[i]=(xi,yi)인 XY 평면좌표의 좌표 배열이 제공됩니다.&lt;br /&gt;
+X 또는 Y 축과 반드시 평행할 필요는 없는 직사각형의 최소 넓이를 반환합니다.&lt;br /&gt;
+그러한 사각형이 없으면 0을 반환합니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 19 Jan 2022 09:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-963</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-963</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.02-5</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
