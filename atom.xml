@@ -8,6 +8,29 @@
     
       
       <item>
+        <title>leetcode - leetcode 142</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+LinkedList의 head가 주어졌을때, 순환되는 지점을 반환하시오.&lt;br /&gt;
+만약 순환지점이 없다면 null을 반환 하시오.&lt;br /&gt;
+다음 포인터를 계속 따라가서 다시 도달할 수 있는 노드가 List에 있는 경우 LinkedList에 순환주기가 있습니다.&lt;br /&gt;
+내부적으로 pos는 tail의 next가 연결된 노드의 인덱스를 나타내는 데 사용됩니다.&lt;br /&gt;
+사이클이 없으면 -1입니다.&lt;br /&gt;
+pos는 매개변수로 전달되지 않습니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 21 Jan 2022 22:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-142</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-142</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 963</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
