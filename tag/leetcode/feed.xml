@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://gihwanjang.github.io/tag/leetcode/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-21T22:29:10+09:00</updated>
+  <updated>2022-01-22T23:03:37+09:00</updated>
   <id>https://gihwanjang.github.io/tag/leetcode/feed.xml</id>
 
   
@@ -72,13 +72,10 @@ Output: no cycle
 &lt;p&gt;
 &lt;ul class=&quot;txt-box&quot;&gt;
     &lt;li class=&quot;txt-box__list&quot;&gt;
-    head가 null이거나 head.next가 null인 경우는 바로 null을 반환해 줍니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    모든 노드에 순차접근하여 해당 노드 주소를 HashSet에 넣은뒤 해당 HashSet에 다음 노드가 들어 있는지 확인 후 있으면 해당 노드를 반환해주고 없으면 계속진행 합니다.
+    모든 노드를 선형검색하여 해당 노드 주소를 HashSet에 넣은뒤 해당 HashSet에 다음 노드가 들어 있는지 확인 후 있으면 해당 노드를 반환해주고 없으면 계속진행 합니다.
     &lt;/li&gt;
 	&lt;li class=&quot;txt-box__list&quot;&gt;
-    모든 노드를 순차접근 해야하므로 O(n)에 시간이 소요되고 HashSet에서 해당 요소를 검색 해야하므로 O(1) 총 O(n)의 시간복잡도로 수행 가능합니다.
+    모든 노드를 선형검색 해야하므로 O(n)에 시간이 소요되고 HashSet에서 해당 요소를 검색 해야하므로 O(1) 총 O(n)의 시간복잡도로 수행 가능합니다.
     &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
@@ -87,7 +84,6 @@ Output: no cycle
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;detectCycle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     	&lt;span class=&quot;nc&quot;&gt;HashSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visitedSet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;visitedSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;

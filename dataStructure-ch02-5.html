@@ -530,7 +530,7 @@ head를 head의 next로 바꾼뒤 size를 감소시킵니다.<br />
 
 <p>
 리스트의 맨뒤의 값을 삭제하는 메소드입니다.<br />
-tail의 전 노드까지 순차접근하여 해당 노드의 next를 null로 바꾼후 tail을 해당노드로 바꾸고 size를 감소시킵니다.
+tail의 전 노드까지 선형검색하여 해당 노드의 next를 null로 바꾼후 tail을 해당노드로 바꾸고 size를 감소시킵니다.
 </p>
 
 <p>
@@ -570,7 +570,7 @@ tail의 값을 반환해 줍니다.
 <p>
 리스트의 특정 객체 맨앞의 하나를 삭제하는 메소드입니다.<br />
 indexOf 메소드를 이용해 리스트가 비거나 해당 객체가 리스트에 없으면 return합니다<br />
-객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 순차적으로 해당 객체가 있는 노드까지 접근합니다.<br />
+객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 선형적으로 해당 객체가 있는 노드까지 접근합니다.<br />
 해당 위치의 노드가 head이면 head를 head의 next로 바꾸고 tail이면 tail을 prev로 바꾸고 아니면 전 노드의 next를 객체가 있는 노드의 next로 바꾼 후 size를 감소시킵니다.
 </p>
 
@@ -602,7 +602,7 @@ indexOf 메소드를 이용해 리스트가 비거나 해당 객체가 리스트
 <p>
 리스트의 특정 객체를 모두 삭제하는 메소드입니다.<br />
 indexOf 메소드를 이용해 리스트가 비거나 해당 객체가 리스트에 없으면 return합니다<br />
-객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 순차적으로 마즈막 노드까지 접근합니다.<br />
+객체가 리스트에 있으면 처음 노드와 해당노드의 전 노드를 선형적으로 마즈막 노드까지 접근합니다.<br />
 이때 현재의 노드의 값이 특정 객이면 해당 위치의 노드가 head이면 head를 head의 next로 바꾸고 tail이면 tail을 prev로 바꾸고 아니면 전 노드의 next를 객체가 있는 노드의 next로 바꾼 후 size를 감소시킵니다.
 </p>
 
@@ -742,6 +742,15 @@ head만 유지했을 때와 비교했을 때 pushBack과 peekBack이 O(1)에 가
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/dataStructure-ch02-6">DataStructure - 자료구조Ch.02-6</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -777,8 +786,6 @@ head만 유지했을 때와 비교했을 때 pushBack과 peekBack이 O(1)에 가
                                     
                                         
                                         
-                                            <li><a href="/dataStructure-ch02-2">DataStructure - 자료구조Ch.02-2</a></li>
-                                        
                                     
                                   
                                 
@@ -807,7 +814,7 @@ head만 유지했을 때와 비교했을 때 pushBack과 peekBack이 O(1)에 가
                         <footer class="read-next-card-footer">
                             <a href="/tag/datastructure/">
                                 
-                                    See all 5 posts  →
+                                    See all 6 posts  →
                                 
                             </a>
                         </footer>
