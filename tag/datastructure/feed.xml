@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://gihwanjang.github.io/tag/datastructure/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-22T23:03:37+09:00</updated>
+  <updated>2022-01-24T03:33:40+09:00</updated>
   <id>https://gihwanjang.github.io/tag/datastructure/feed.xml</id>
 
   
@@ -338,7 +338,8 @@
 &lt;/body&gt;
 &lt;p&gt;
 위의 표와 같이 주요 메소드들의 시간 복잡도를 정리해 보았습니다.&lt;br /&gt;
-여기서 확인 할 수 있는 것은 배열기반의 리스트는 인덱스를 가지고 접근할 수 있기 때문에 이진탐색을 통해 객체의 검색을 O(logn)에 가능하지만 연결 리스트의 경우에는 인덱스의 접근이 아닌 연결에 의존하여 따라가기 때문에 선형검색 즉 O(n)의 시간으로만 검색이 가능하다는 것을 알 수 있었습니다.
+여기서 확인 할 수 있는 것은 배열기반의 리스트는 인덱스를 가지고 접근할 수 있기 때문에 이진탐색을 통해 객체의 검색을 O(logn)에 가능하지만 연결 리스트의 경우에는 인덱스의 접근이 아닌 연결에 의존하여 따라가기 때문에 선형검색 즉 O(n)의 시간으로만 검색이 가능하다는 것을 알 수 있었습니다.&lt;br /&gt;
+다음 post에서는 이중연결리스트에 관한 post를 올리도록 하겠습니다.
 &lt;/p&gt;</content>
 
       
