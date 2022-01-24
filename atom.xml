@@ -8,6 +8,38 @@
     
       
       <item>
+        <title>leetcode - leetcode 520</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+다음 경우 중 하나에 해당하는 경우 단어의 대문자 사용이 올바른 것으로 정의합니다.
+    &lt;ul class=&quot;txt-box&quot;&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        모든 문장이 대문자인 경우 ex : &quot;USA&quot;
+        &lt;/li&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        모든 문장이 소문자인 경우 ex : &quot;leetcode&quot;
+        &lt;/li&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        첫 문자만 대문자인 경우 ex : &quot;Google&quot;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;
+문자열이 주어졌을 때 대문자 사용이 올바른지를 반환하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 24 Jan 2022 16:50:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-520</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-520</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.02-7</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;

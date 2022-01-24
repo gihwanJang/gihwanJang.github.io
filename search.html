@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-520": {
+"title": "leetcode - leetcode 520",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;다음 경우 중 하나에 해당하는 경우 단어의 대문자 사용이 올바른 것으로 정의합니다.                    모든 문장이 대문자인 경우 ex : \"USA\"                        모든 문장이 소문자인 경우 ex : \"leetcode\"                        첫 문자만 대문자인 경우 ex : \"Google\"            문자열이 주어졌을 때 대문자 사용이 올바른지를 반환하시오.&lt;Example1&gt;Input: word = \"USA\"Output: true&lt;Example2&gt;Input: word = \"FlaG\"Output: false&lt;설명&gt;        해당 문자열과 해당 문자열을 모두 대문자로 바꾼 것과 같으면 모든 문장이 대문자 이므로 true를 반환합니다.    \t    해당 문자열과 해당 문자열을 모두 소문자로 바꾼 것과 같으면 모든 문장이 소문자 이므로 true를 반환합니다.            해당 문자열과 해당 문자열의 첫문자를 대문자로 바꾸고 나머지 문자열을 소문자로 바꾼것과 같으면 첫 문자만 대문자 이므로 true를 반환합니다.            이외의 경우 false를 반환합니다.    &lt;Coding&gt;class Solution {    public boolean detectCapitalUse(String word) {    \tif(word.toUpperCase()==word||    \t\t\tword.toLowerCase()==word||    \t\t\tword.compareTo(word.substring(0, 1).toUpperCase()+word.substring(1).toLowerCase())==0)    \t\treturn true;        return false;    }}&lt;결과&gt;SuccessDetails Runtime: 2 ms, faster than 59.30% of Java online submissions for Detect Capital.Memory Usage: 37.6 MB, less than 65.22% of Java online submissions for Detect Capital.",
+"url": "/leetcode-520"
+}
+,
+
 "datastructure-ch02-7": {
 "title": "DataStructure - 자료구조Ch.02-7",
 "author": "gihwan319",
