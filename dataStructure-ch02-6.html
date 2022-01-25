@@ -311,7 +311,11 @@ into the {body} of the default.hbs template -->
 	
 	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
 		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
-		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="n">head</span><span class="o">=</span><span class="n">tail</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">tail</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+			<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 		<span class="nc">Node</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
 		<span class="nc">Node</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="n">head</span><span class="o">);</span>
 		<span class="k">while</span><span class="o">(</span><span class="n">prev</span><span class="o">!=</span><span class="n">tail</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&lt;=</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
@@ -407,7 +411,11 @@ into the {body} of the default.hbs template -->
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
 		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
-		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="n">head</span><span class="o">=</span><span class="n">tail</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">head</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">tail</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+			<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
 		<span class="nc">Node</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
 		<span class="nc">Node</span> <span class="n">prev</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="n">head</span><span class="o">);</span>
 		<span class="k">while</span><span class="o">(</span><span class="n">prev</span><span class="o">!=</span><span class="n">tail</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">curr</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&lt;=</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
@@ -445,8 +453,9 @@ into the {body} of the default.hbs template -->
 비정렬 리스트에서는 인자를 pushFront메소드로 받았지만 정렬 리스트에서는 add롤 통해 객체들을 리스트에 삽입시켜 줍니다.
 </p>
 
-<p>(removeAll)
-&lt;/p&gt;</p>
+<p>
+(removeAll)
+</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeAll</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">val</span><span class="o">)==-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
@@ -607,6 +616,15 @@ into the {body} of the default.hbs template -->
                                 
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/dataStructure-ch02-8">DataStructure - 자료구조Ch.02-8</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -641,8 +659,6 @@ into the {body} of the default.hbs template -->
                                   
                                     
                                         
-                                        
-                                            <li><a href="/dataStructure-ch02-4">DataStructure - 자료구조Ch.02-4</a></li>
                                         
                                     
                                   
@@ -690,7 +706,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/datastructure/">
                                 
-                                    See all 7 posts  →
+                                    See all 8 posts  →
                                 
                             </a>
                         </footer>
