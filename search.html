@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-1305": {
+"title": "leetcode - leetcode 1305",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;두 이진검색트리(BST) root1, root2가 주어졌을 때, 트리의 모든 값을 오름차순 정렬한 정수 리스트를 반환하시오.&lt;Example1&gt;Input: root1 = [2,1,4], root2 = [1,0,3]Output: [0,1,1,2,3,4]&lt;Example2&gt;Input: root1 = [1,null,8], root2 = [8,1]Output: [1,1,8,8]&lt;설명&gt;        각 트리의 값을 저장할 리스트 2개 visitedOrder1,2를 선언해 줍니다.    이때 각 트리의 노드 갯수를 정확히 알 수 없으므로 LinkedList를 사용합니다.            각 트리를 inorder방식으로 순회하며 정렬된 값을 리스트에 저장합니다.            정렬된 리스트를 병합정렬할 리스트를 새로 선언합니다.    이때 선언하는 리스트는 순회한 리스트들의 길이의 합과 같기 때문에 ArrayList를 사용하여 용량을 합으로 지정해 줍니다.            while문을 통해 각리스트의 처음 값 즉 젤 작은 값들을 비교하여 작은 값을 병합리스트에 넣어 정렬해 줍니다.            최종적으로 정렬된 리스트를 반환해 줍니다.    &lt;Coding&gt;class Solution {\tprivate void inorder(TreeNode curr, List&lt;Integer&gt; visitedOrder) {\t\tif(curr==null)return;\t\tif(curr.left!=null) inorder(curr.left,visitedOrder);\t\tvisitedOrder.add(curr.val);\t\tif(curr.right!=null) inorder(curr.right,visitedOrder);\t}    public List&lt;Integer&gt; getAllElements(TreeNode root1, TreeNode root2) {    \tList&lt;Integer&gt; visitedOrder1 = new LinkedList&lt;&gt;();    \tList&lt;Integer&gt; visitedOrder2 = new LinkedList&lt;&gt;();    \tinorder(root1,visitedOrder1);    \tinorder(root2,visitedOrder2);    \tList&lt;Integer&gt; visitedOrder = new ArrayList&lt;&gt;(visitedOrder1.size()+visitedOrder2.size());    \twhile(!visitedOrder1.isEmpty()&amp;&amp;!visitedOrder2.isEmpty()) {    \t\tif(visitedOrder1.get(0)&gt;visitedOrder2.get(0)) {    \t\t\tvisitedOrder.add(visitedOrder2.get(0));    \t\t\tvisitedOrder2.remove(0);    \t\t}    \t\telse {    \t\t\tvisitedOrder.add(visitedOrder1.get(0));    \t\t\tvisitedOrder1.remove(0);    \t\t}    \t}    \tif(visitedOrder1.isEmpty())for(int i:visitedOrder2)visitedOrder.add(i);    \tif(visitedOrder2.isEmpty())for(int i:visitedOrder1)visitedOrder.add(i);    \treturn visitedOrder;    }}&lt;결과&gt;SuccessDetails Runtime: 16 ms, faster than 64.58% of Java online submissions for All Elements in Two Binary Search Trees.Memory Usage: 41.3 MB, less than 97.05% of Java online submissions for All Elements in Two Binary Search Trees.",
+"url": "/leetcode-1305"
+}
+,
+
 "leetcode-941": {
 "title": "leetcode - leetcode 941",
 "author": "gihwan319",
