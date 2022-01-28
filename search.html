@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-3": {
+"title": "leetcode - leetcode 3",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;문자열 s가 주어졌을 때, 문자를 반복하지 않는 가장 긴 부분의 문자열의 길이를 반환하시오.&lt;Example1&gt;Input: s = \"abcabcbb\"Output: 3&lt;Example2&gt;Input: s = \"bbbbb\"Output: 1&lt;Example3&gt;Input: s = \"pwwkew\"Output: 3&lt;설명&gt;        부분 문자열을 저장할 리스트를 생성합니다.\t이때 해당 부분 문자열은 최대 문자열의 길이 만큼 나올 수 있기 때문에 ArrayList를 사용하였습니다.            부분 문자열의 길이를 저장할 변수와 부분 문자열을 접근할 인덱스 변수를 0으로 선언해 줍니다.            위에서 선언한 변수들을 통해 아래의 과정을 반복하는 while 반복문을 실행합니다.\t    \t\t\t선언된 인덱스를 이용해 해당 문자열을 선형검색 하며 각 단어들을 부분 문자열 리스트에 넣습니다.\t\t이때 만약 중복되는 문자가 있으면 선형검색을 중지합니다.\t\t\t\t\t\t위의 과정에서 생성된 부분 문자열을 이용해 부분 문자열의 길이를 저장하는 변수에 기존에 저장되있는 값보다 크다면 교체해 줍니다.\t\t\t\t\t\t만약 인덱스가 문자열의 끝이라면 while 반복문을 종료합니다\t\t그렇지 않으면 인덱스를 중복된 문자 앞으로 변경시켜준 후 새 부분 문자열을 받아야 하므로 부분 문자열 리스트를 비우고 반복을 진행합니다.\t\t\t            최종적으로 부분 문자열의 길이를 반환해 줍니다.    &lt;Coding&gt;class Solution {    public int lengthOfLongestSubstring(String s) {\t\tArrayList&lt;Character&gt; substring = new ArrayList&lt;&gt;(s.length());\t\tint length=0;\t\tint i=0;\t\twhile(true) {\t\t\tfor(; i&lt;s.length(); ++i) {\t\t\t\tif(!substring.contains(s.charAt(i))) substring.add(s.charAt(i));\t\t\t\telse break;\t\t\t}\t\t\tlength=substring.size()&gt;length?substring.size():length;\t\t\tif(i!=s.length()) i-=substring.size()-substring.indexOf(s.charAt(i))-1;\t\t\telse break;\t\t\tsubstring.clear();\t\t}\t\treturn length;    }}&lt;결과&gt;SuccessDetails Runtime: 614 ms, faster than 5.01% of Java online submissions for Longest Substring Without Repeating Characters.Memory Usage: 42.1 MB, less than 25.40% of Java online submissions for Longest Substring Without Repeating Characters.",
+"url": "/leetcode-3"
+}
+,
+
 "datastructure-ch02-9": {
 "title": "DataStructure - 자료구조Ch.02-9",
 "author": "gihwan319",
