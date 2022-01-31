@@ -8,6 +8,28 @@
     
       
       <item>
+        <title>leetcode - leetcode 1672</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+m X n 의 정수 좌표의 계좌가 주어집니다.&lt;br /&gt;
+이때 이 계좌 account[i][j]는 i번째 고객이 j에 보유한 재산의 금액입니다.&lt;br /&gt;
+가장 부유한 고객이 가지고 있는 금액을 반환하시오.&lt;br /&gt;&lt;br /&gt;
+고객의 재산은 모든 은행 계좌에 있는 금액입니다.&lt;br /&gt;
+가장 부유한 고객은 최대의 금액을 가진 고객입니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 31 Jan 2022 15:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-1672</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-1672</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 189</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

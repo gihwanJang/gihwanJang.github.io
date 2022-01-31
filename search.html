@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-1672": {
+"title": "leetcode - leetcode 1672",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;m X n 의 정수 좌표의 계좌가 주어집니다.이때 이 계좌 account[i][j]는 i번째 고객이\u001c j에 보유한 재산의 금액입니다.가장 부유한 고객이 가지고 있는 금액을 반환하시오.고객의 재산은 모든 은행 계좌에 있는 금액입니다.가장 부유한 고객은 최대의 금액을 가진 고객입니다.&lt;Example1&gt;Input: accounts = [[1,2,3],[3,2,1]]Output: 6&lt;Example2&gt;Input: accounts = [[1,5],[7,3],[3,5]]Output: 10&lt;Example3&gt;Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]Output: 17&lt;설명&gt;        최대 금액을 저장하는 변수를 선언합니다.    \t    for문을 통해 각 손님들의 계좌를 선형적으로 방문합니다.    \t    해당 for문 안에 모든 금액을 더한 값을 저정할 변수를 선언합니다.    \t    2중 for문으로 i번째 손님의 금액을 선형적으로 접근하여 값을 더해줍니다.    \t    만약 최대 금액 보다 해당 손님의 금액이 크다면 최대 금액 값을 바꿔 줍니다.    \t    최대 금액 값을 반환해 줍니다.    &lt;Coding&gt;class Solution {    public int maximumWealth(int[][] accounts) {    \tint max=0;        for(int[] i:accounts) {        \tint money=0;        \tfor(int j:i) money+=j;        \tif(money&gt;max)max=money;        }        return max;    }}&lt;결과&gt;SuccessDetails Runtime: 0 ms, faster than 100.00% of Java online submissions for Richest Customer Wealth.Memory Usage: 43.6 MB, less than 5.42% of Java online submissions for Richest Customer Wealth.",
+"url": "/leetcode-1672"
+}
+,
+
 "leetcode-189": {
 "title": "leetcode - leetcode 189",
 "author": "gihwan319",
