@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 9</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+정수 x가 주어졌을 때 x가 좌우대칭인 수이면 참을 반환하시오.&lt;br /&gt;
+좌우대칭인 수란 수를 읽을 때 앞에서 읽으나 뒤에서 읽으나 같은 수를 의미합니다.&lt;br /&gt;
+ex : 121은 좌우대칭인 수이고 123은 좌우대칭인 수가 아닙니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 04 Feb 2022 19:30:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-9</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-9</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.03-2</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
