@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-23": {
+"title": "leetcode - leetcode 23",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;k 개의 정렬된 LinkedList의 배열이 주어졌을 때, 해당 LinkedList들을 병합 정렬하여 반환하시오.&lt;Example1&gt;Input: lists = [[1,4,5],[1,3,4],[2,6]]Output: [1,1,2,3,4,4,5,6]&lt;Example2&gt;Input: lists = []Output: []&lt;Example3&gt;Input: lists = [[]]Output: []&lt;설명&gt;        반환해줄 LinkedList의 첫 부분인 head를 선언해 줍니다.            for-each를 통해 모든 LinkedList배열에 대하여 아래의 과정을 반복합니다.                    만약 head가 null이면 해당 정렬된 LinkedList를 head로 설정하고 해당 LinkedList를 건너 뜁니다.        이때 해당 LinkedList가 null이라면 다음 LinkedList가 head에 들어 오게 됩니다.                        head가 null이 아니라면 while문을 통해 해당 LinkedList의 각 노드들을 방문해 아래의 과정을 실행 합니다.                                접근한 노드를 저장할 변수를 선언해 줍니다.                                    해당 노드를 삽입하기 위해 head의 리스트의 자리의 전후 노드 즉 head리스트 노드중 삽입노드의 값보다 작지만 가장 큰 값을 가진 노드와 삽입노드의 값보다 크지만 가장 작은 값을 가진 노드를 찾습니다.                                    전의 노드 다음을 삽입노드로 이어주고 삽입 노드 다음을 후의 노드에 이어 줍니다.            이때 전의 노드가 없을 경우 삽입 노드를 head로 바꿔 줍니다.                                            해당 과정이 끝나면 head를 반환해 줍니다.    &lt;Coding&gt;class Solution {    public ListNode mergeKLists(ListNode[] lists) {    \tListNode head = null;        for(ListNode n:lists) {        \tif(head==null) {        \t\thead=n;        \t\tcontinue;        \t}        \twhile(n!=null) {        \t\tListNode node = n;        \t\tn=n.next;        \t\tListNode curr = head;        \t\tListNode prev = new ListNode(0,head);        \t\twhile(curr!=null &amp;&amp; curr.val&lt;node.val) {        \t\t\tcurr=curr.next;        \t\t\tprev=prev.next;        \t\t}        \t\tprev.next=node;    \t\t\tnode.next=curr;    \t\t\tif(curr==head)head=node;        \t}        }        return head;    }}&lt;결과&gt;SuccessDetails Runtime: 88 ms, faster than 19.84% of Java online submissions for Merge k Sorted Lists.Memory Usage: 43.7 MB, less than 59.68% of Java online submissions for Merge k Sorted Lists.",
+"url": "/leetcode-23"
+}
+,
+
 "datastructure-ch03-3": {
 "title": "DataStructure - 자료구조Ch.03-3",
 "author": "gihwan319",
