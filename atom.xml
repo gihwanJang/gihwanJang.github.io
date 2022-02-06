@@ -8,6 +8,31 @@
     
       
       <item>
+        <title>leetcode - leetcode 80</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다.&lt;br /&gt;
+일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다.&lt;br /&gt;
+즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다.
+&lt;br /&gt;
+ k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다.&lt;br /&gt;
+ 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다.&lt;br /&gt;
+ 다른 배열 즉 추가 공간을 할당하지 마십시오.&lt;br /&gt;
+ O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 06 Feb 2022 21:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-80</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-80</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 23</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

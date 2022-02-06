@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://gihwanjang.github.io/author/gihwan319/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-06T02:44:55+09:00</updated>
+  <updated>2022-02-06T21:26:26+09:00</updated>
   <id>https://gihwanjang.github.io/author/gihwan319/feed.xml</id>
 
   
@@ -30,6 +30,113 @@
   
   
 
+  
+    <entry>
+      <title type="html">leetcode - leetcode 80</title>
+      <link href="https://gihwanjang.github.io/leetcode-80" rel="alternate" type="text/html" title="leetcode - leetcode 80" />
+      <published>2022-02-06T21:00:00+09:00</published>
+      <updated>2022-02-06T21:00:00+09:00</updated>
+      <id>https://gihwanjang.github.io/leetcode-80</id>
+      <content type="html" xml:base="https://gihwanjang.github.io/leetcode-80">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다.&lt;br /&gt;
+일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다.&lt;br /&gt;
+즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다.
+&lt;br /&gt;
+ k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다.&lt;br /&gt;
+ 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다.&lt;br /&gt;
+ 다른 배열 즉 추가 공간을 할당하지 마십시오.&lt;br /&gt;
+ O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [1,1,1,2,2,3]&lt;br /&gt;
+Output: 5, nums = [1,1,2,2,3,_]
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [0,0,1,1,1,1,2,3,3]&lt;br /&gt;
+Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    중복된 값들을 카운트해줄 변수를 선언해 줍니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    for문을 통해 2번째 인덱스 부터 (주어진 배열의 길이-중복된 갯수의 값)의 인덱스 까지 순차적으로 접근하며 아래의 과정을 반복합니다.
+    &lt;ul class=&quot;txt-box&quot;&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같을 경우 값은 최소 3개 이므로 
+        for 문을 통해 해당 인덱스 다음값들을 해당 인덱스 쪽으로 당깁니다.&lt;br /&gt;
+        카운트를 증가 시켜 줍니다.
+        &lt;/li&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같지 않을 경우 다음 인덱스로 넘어갑니다.
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    (주어진 배열의 길이-중복된 갯수의 값)을 반환해 줍니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removeDuplicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    				&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 1 ms, faster than 65.03% of Java online submissions for Remove Duplicates from Sorted Array II.&lt;br /&gt;
+Memory Usage: 42.3 MB, less than 15.08% of Java online submissions for Remove Duplicates from Sorted Array II.
+&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>gihwan319</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="leetcode" />
+      
+
+      
+        <summary type="html">&amp;lt;문제&amp;gt; 내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다. 일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다. 즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다. k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다. 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다. 다른 배열 즉 추가 공간을 할당하지 마십시오. O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">leetcode - leetcode 23</title>
@@ -1461,263 +1568,6 @@ Memory Usage: 42.1 MB, less than 25.40% of Java online submissions for Longest S
 
       
         <summary type="html">&amp;lt;문제&amp;gt; 문자열 s가 주어졌을 때, 문자를 반복하지 않는 가장 긴 부분의 문자열의 길이를 반환하시오.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">DataStructure - 자료구조Ch.02-9</title>
-      <link href="https://gihwanjang.github.io/dataStructure-ch02-9" rel="alternate" type="text/html" title="DataStructure - 자료구조Ch.02-9" />
-      <published>2022-01-26T21:00:00+09:00</published>
-      <updated>2022-01-26T21:00:00+09:00</updated>
-      <id>https://gihwanjang.github.io/dataStructure-ch02-9</id>
-      <content type="html" xml:base="https://gihwanjang.github.io/dataStructure-ch02-9">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
-자료구조 Ch.02 : 리스트
-&lt;/p&gt;
-
-&lt;p&gt;10. 정리&lt;/p&gt;
-
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    데이터를 정렬하여 유지 할 수 있고, 정렬하지 않고 유지할 수 있습니다.
-	&lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        정렬하지 않으면 삽입을 효과적으로 할 수 있지만 반면에 검색은 선형 검색을 할 수 밖에 없습니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        연결구조는 정렬하여 유지하여도 이진 검색을 할 수 없습니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    중복 허용 여부
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        비정렬의 경우 중복을 허용하지 않으면 삽입을 효과적으로 할 수 있는 이점이 사라지기 때문에 보통 중복을 허용합니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        정렬은 중복 허용이 성능에 영향을 주지 않습니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    배열은 용량이 고정되기 때문에 보통 동적 배열 기법을 사용합니다.
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        동적 배열 기법은 보통 용량을 확장해야 할 때 2배로 확장합니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        2배로 확장하면 확장 비용을 무시할 수 있지만 최초에 필요한 용량을 파악하고 충분히 확보한 후에 사용하는 것이 효과적입니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    배열은 임의 접근 할 수 있는 것이 최대 이점이고, 연결구조는 공간이 낭비되지 않고, 초기에 적절한 용량을 확보해야 하는 고민이 없습니다.
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        배열은 연속 공간으로 확보되기 때문에 캐싱 측면에서 유리합니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    리스트는 다른 자료구조를 구현할 때 내부 데이터를 저장하는 용도로도 많이 활용됩니다.&lt;br /&gt;
-	예를 들어 스택, 큐, 덱, 등 이 있습니다.
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    배열은 기본적으로 맨 뒤에 삽입/추출이 효과적이고, 연결구조는 맨 앞에 삽입/추출이 효과적입니다.
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    배열은 삽입 순서를 유지하면서 양방향으로 효과적으로 삽입/추출하고 싶으면 순환 배열 방식을 사용해야 합니다.
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    연결구조는 양방향으로 효과적으로 삽입/추출하고 싶으면 꼬리 포인터까지 유지하는 이중 연결구조를 사용해야 합니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;(비교)&lt;/p&gt;
-&lt;style type=&quot;text/css&quot;&gt;
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-&lt;/style&gt;
-
-&lt;table class=&quot;tg&quot;&gt;
-&lt;thead&gt;
-  &lt;tr&gt;
-    &lt;th class=&quot;tg-baqh&quot;&gt;&lt;/th&gt;
-    &lt;th class=&quot;tg-baqh&quot; colspan=&quot;2&quot;&gt;ArrayList&lt;/th&gt;
-    &lt;th class=&quot;tg-baqh&quot; colspan=&quot;4&quot;&gt;SingleLinkedList&lt;/th&gt;
-    &lt;th class=&quot;tg-baqh&quot; colspan=&quot;4&quot;&gt;DoubleLinkedLIst&lt;/th&gt;
-  &lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot; rowspan=&quot;2&quot;&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; rowspan=&quot;2&quot;&gt;비정렬&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; rowspan=&quot;2&quot;&gt;정렬&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; colspan=&quot;2&quot;&gt;비정렬&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; colspan=&quot;2&quot;&gt;정렬&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; colspan=&quot;2&quot;&gt;비정렬&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot; colspan=&quot;2&quot;&gt;정렬&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;only&lt;br /&gt;head&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;with&lt;br /&gt;tail&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;only&lt;br /&gt;head&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;with&lt;br /&gt;tail&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;only&lt;br /&gt;head&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;with&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;tail&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;only&lt;br /&gt;head&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;with&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;tail&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;contains&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;O(n)&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;O(logn)&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;O(n)&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;O(n)&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;push&lt;br /&gt;Front&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;pop&lt;br /&gt;Front&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;push&lt;br /&gt;Back&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;O(1)&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;pop&lt;br /&gt;Back&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(1)&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;add&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;-&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;remove&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-    &lt;td class=&quot;tg-baqh&quot;&gt;&lt;span style=&quot;font-weight:normal;font-style:normal;text-decoration:none&quot;&gt;O(n)&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;
-종류별 리스트들의 주요 메소드의 시간 복잡도를 정리해 보았습니다.&lt;br /&gt;
-이를 바탕으로 다른 자료구조에서 어떤 리스트를 활용해야 효과적인지 아래에서 살펴 보도록 하겠습니다.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;스택&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-기본적으로 마즈막에 들어간 것이 먼저나오는 LIFO구조를 가지고 있는 자료구조입니다.&lt;br /&gt;
-스택은 동적 배열 기법을 사용하는 비정렬 배열 리스트로 구현하거나 단일 연결 구조 리스트로 구현 하면 효과적입니다.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;큐&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-기본적으로 먼저 들어간 것이 먼저나오는 FIFO구조를 가지고 있는 자료구조입니다.&lt;br /&gt;
-큐는 동적 배열 기법을 사용하는 비정렬 순환 배열 리스트로 구현하거나 꼬리 포인터를 유지하는 단일 연결 구조 리스트로 구현 하는 것이 효과적입니다.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;덱&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-기본적으로 앞뒤 양쪽으로 나오고 들어갈 수 있는 구조를 가지는 자료구조입니다.&lt;br /&gt;
-덱은 동적 배열 기법을 사용하는 비정렬 순환 배열 리스트로 구현하거나 꼬리 포인터를 유지하는 이중 연결 구조 리스트로 구현하는 것이 효과적입니다.
-&lt;/p&gt;
-
-&lt;p&gt;
-이것으로 이번 장을 마무리 하고 다음 부터는 트리에 관한 post를 올리도록 하겠습니다.
-&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>gihwan319</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="datastructure" />
-      
-
-      
-        <summary type="html">자료구조 Ch.02 : 리스트</summary>
       
 
       

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://gihwanjang.github.io/tag/leetcode/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-06T02:44:55+09:00</updated>
+  <updated>2022-02-06T21:26:26+09:00</updated>
   <id>https://gihwanjang.github.io/tag/leetcode/feed.xml</id>
 
   
@@ -30,6 +30,113 @@
   
   
 
+  
+    <entry>
+      <title type="html">leetcode - leetcode 80</title>
+      <link href="https://gihwanjang.github.io/leetcode-80" rel="alternate" type="text/html" title="leetcode - leetcode 80" />
+      <published>2022-02-06T21:00:00+09:00</published>
+      <updated>2022-02-06T21:00:00+09:00</updated>
+      <id>https://gihwanjang.github.io/leetcode-80</id>
+      <content type="html" xml:base="https://gihwanjang.github.io/leetcode-80">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다.&lt;br /&gt;
+일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다.&lt;br /&gt;
+즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다.
+&lt;br /&gt;
+ k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다.&lt;br /&gt;
+ 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다.&lt;br /&gt;
+ 다른 배열 즉 추가 공간을 할당하지 마십시오.&lt;br /&gt;
+ O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [1,1,1,2,2,3]&lt;br /&gt;
+Output: 5, nums = [1,1,2,2,3,_]
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [0,0,1,1,1,1,2,3,3]&lt;br /&gt;
+Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    중복된 값들을 카운트해줄 변수를 선언해 줍니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    for문을 통해 2번째 인덱스 부터 (주어진 배열의 길이-중복된 갯수의 값)의 인덱스 까지 순차적으로 접근하며 아래의 과정을 반복합니다.
+    &lt;ul class=&quot;txt-box&quot;&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같을 경우 값은 최소 3개 이므로 
+        for 문을 통해 해당 인덱스 다음값들을 해당 인덱스 쪽으로 당깁니다.&lt;br /&gt;
+        카운트를 증가 시켜 줍니다.
+        &lt;/li&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같지 않을 경우 다음 인덱스로 넘어갑니다.
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    (주어진 배열의 길이-중복된 갯수의 값)을 반환해 줍니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removeDuplicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    				&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 1 ms, faster than 65.03% of Java online submissions for Remove Duplicates from Sorted Array II.&lt;br /&gt;
+Memory Usage: 42.3 MB, less than 15.08% of Java online submissions for Remove Duplicates from Sorted Array II.
+&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>gihwan319</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="leetcode" />
+      
+
+      
+        <summary type="html">&amp;lt;문제&amp;gt; 내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다. 일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다. 즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다. k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다. 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다. 다른 배열 즉 추가 공간을 할당하지 마십시오. O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">leetcode - leetcode 23</title>
@@ -1107,151 +1214,6 @@ Memory Usage: 37.6 MB, less than 65.22% of Java online submissions for Detect Ca
 
       
         <summary type="html">&amp;lt;문제&amp;gt; 다음 경우 중 하나에 해당하는 경우 단어의 대문자 사용이 올바른 것으로 정의합니다. 모든 문장이 대문자인 경우 ex : &quot;USA&quot; 모든 문장이 소문자인 경우 ex : &quot;leetcode&quot; 첫 문자만 대문자인 경우 ex : &quot;Google&quot; 문자열이 주어졌을 때 대문자 사용이 올바른지를 반환하시오.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">leetcode - leetcode 1291</title>
-      <link href="https://gihwanjang.github.io/leetcode-1291" rel="alternate" type="text/html" title="leetcode - leetcode 1291" />
-      <published>2022-01-24T03:30:00+09:00</published>
-      <updated>2022-01-24T03:30:00+09:00</updated>
-      <id>https://gihwanjang.github.io/leetcode-1291</id>
-      <content type="html" xml:base="https://gihwanjang.github.io/leetcode-1291">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-정수는 숫자의 각 자릿수가 이전 자릿수보다 하나 더 많은 경우에만 연속 자릿수를 갖습니다.&lt;br /&gt;
-[low, high] 범위 내에서 연속 숫자를 포함하는 모든 정수의 정렬된 리스트를 반환하시오.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: low = 100, high = 300&lt;br /&gt;
-Output: [123,234]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: low = 1000, high = 13000&lt;br /&gt;
-Output: [1234,2345,3456,4567,5678,6789,12345]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    low의 자릿수(lowNum)를 low에 10 정수나눗셈을 실행하여 산출합니다.
-    &lt;/li&gt;
-	&lt;li class=&quot;txt-box__list&quot;&gt;
-    해당 자릿수의 첫째 자리수를 기억할 count를 1로 선언해 줍니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    반복하여 아래의 과정을 진행해 줍니다.
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        리스트에 저장할 수(num)를 0으로 선언해 줍니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        해당 num에 대하여 아래의 과정을 low의 자릿수+count/10만큼 반복해 줍니다.
-        &lt;ul class=&quot;txt-box&quot;&gt;
-            &lt;li class=&quot;txt-box__list&quot;&gt;
-            각 자리의 수를 정해줄 j를 count%10으로 정해줍니다.&lt;br /&gt;
-            이때 j는 각 반복 과정 마다 +1 연산을 해 줍니다.
-            &lt;/li&gt;
-            &lt;li class=&quot;txt-box__list&quot;&gt;
-            num에 10곱하기 연산을 해줍니다.&lt;br /&gt;
-            처음에는 해당 num 값이 0이므로 아무 영향을 받지 않지만 이후에는 현재의 자릿수를 왼쪽으로 밀어주는 역할을 합니다.
-            &lt;/li&gt;
-            &lt;li class=&quot;txt-box__list&quot;&gt;
-            num에 j더하기 연산을 해줍니다.&lt;br /&gt;
-            위에서 밀어주는 역할을 했으니 이 과정에서는 +1이된 j의 값을 밀고난 빈 자릿수에 넣어주는 역할을 하게 됩니다.
-            &lt;/li&gt;
-            &lt;li class=&quot;txt-box__list&quot;&gt;
-            num에 10나머지 연산을 하여 0일경우 해당 반복을 종료하게 됩니다.&lt;br /&gt;
-            해당 리스트의 정수는 앞의 자릿수보다 뒷 자릿수가 1씩 커야 하므로 마즈막에 올 수 있는 수 중 가장 큰 수는 9입니다.&lt;br /&gt;
-            이때 9가 오고 한번더 반복을 진행하게 될 시 10 곱하기 연산을 하며 끝에서 2번째 자리는 9 즉 ...90의 형태의 수가 오게 될것이고 j는 10이므로 더하게 되면 끝은 결국 10의 배수의 형태가 되게 됩니다.&lt;br /&gt;
-            끝은 결코 0이될 수 없으니 10의 나머지 연산이 0이되면 해당 반복은 종료하게 됩니다.
-            &lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        위의 과정을 통해 num이 정해지게 되고 num이 해당 범위 내에 있으면 리스트에 포함 시키고 high의 범위를 벗어나게 되면 반복을 종료합니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        또한 num의 최대가 123456789이기 때문에 해당 값을 넘어가면 반복이 멈추지 않게 때문에 해당 값이 되면 반복을 종료합니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        count값을 증가 시켜 다음 num은 앞자리가 1이 더 큰 수가 오게합니다.&lt;br /&gt;
-        이때 증가시킨후 값이 10의 배수인 경우 앞자리가 0이되기 때문에 한번더 +1연산을 해줍니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    위의 반복이 끝나면 리스트를 반환해 줍니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sequentialDigits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LinkedList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lowNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lowNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lowNum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        		&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        		&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        			&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        			&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123456789&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        	&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;digits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-Success&lt;br /&gt;
-Details &lt;br /&gt;
-Runtime: 0 ms, faster than 100.00% of Java online submissions for Sequential Digits.&lt;br /&gt;
-Memory Usage: 36.4 MB, less than 81.52% of Java online submissions for Sequential Digits.
-&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>gihwan319</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="leetcode" />
-      
-
-      
-        <summary type="html">&amp;lt;문제&amp;gt; 정수는 숫자의 각 자릿수가 이전 자릿수보다 하나 더 많은 경우에만 연속 자릿수를 갖습니다. [low, high] 범위 내에서 연속 숫자를 포함하는 모든 정수의 정렬된 리스트를 반환하시오.</summary>
       
 
       
