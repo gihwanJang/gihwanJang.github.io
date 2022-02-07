@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 389</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+문자열 s, t가 주어집니다.&lt;br /&gt;
+문자열 t는 문자열 s를 썩은 뒤 랜덤한 한 글자를 임의의 위치에 추가하여 생성 됩니다.&lt;br /&gt;
+t에 추가된 한글자를 반환하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 07 Feb 2022 16:30:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-389</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-389</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 80</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
