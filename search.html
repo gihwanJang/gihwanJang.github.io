@@ -179,6 +179,24 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-258": {
+"title": "leetcode - leetcode 258",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;정수 num이 주어졌을 때, 한자리가 될때 까지 각 자리수를 더하는 것을 반복하고 남은 한자리 수를 반환하시오.&lt;Example1&gt;Input: num = 38Output: 2&lt;Example2&gt;Input: num = 0Output: 0&lt;설명&gt;        for 문을 통해 num이 1자릿 수가 될때 까지 반복합니다.    이때 k는 각 자릿 수를 더하여 저장할 변수이고 각자시수를 더한 값은 매번 num으로 초기화 됩니다.                    for문을 이용하여 k는 항상 for문 실행 전 0으로 초기화하고 num에 %10연산을 하여 k에 더해주고 num에 /10연산을 하여 %로 연산한 나마지를 버려 줍니다.                        num이 한자릿 수가 되면 반환해 줍니다.    &lt;Coding&gt;class Solution {    public int addDigits(int num) {        for(int k=0;num&gt;9;num=k)        \tfor(k=0; num&gt;0; num/=10)        \t\tk+=num%10;        return num;    }}&lt;결과&gt;SuccessDetails Runtime: 1 ms, faster than 99.79% of Java online submissions for Find the Difference.Memory Usage: 40.7 MB, less than 15.81% of Java online submissions for Find the Difference.",
+"url": "/leetcode-258"
+}
+,
+
+"datastructure-ch03-4": {
+"title": "DataStructure - 자료구조Ch.03-4",
+"author": "gihwan319",
+"category": "",
+"content": "자료구조 Ch.02 : 트리",
+"url": "/dataStructure-ch03-4"
+}
+,
+
 "leetcode-389": {
 "title": "leetcode - leetcode 389",
 "author": "gihwan319",
