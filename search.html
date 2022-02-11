@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-567": {
+"title": "leetcode - leetcode 567",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;s1, s2 두개의 문자열이 주어졌을 때, 만약 s2의 하위 배열이 s1문자열의 모든문자를 사용한 조합으로 이루어 졌다면 true 아니면 false를 반환하시오.&lt;Example1&gt;Input: s1 = \"ab\", s2 = \"eidbaooo\"Output: true&lt;Example2&gt;Input: s1 = \"ab\", s2 = \"eidboaoo\"Output: false&lt;설명&gt;        참, 거짓을 판별할 변수 check를 선언해 줍니다.            s1문자열의 a~z까지 사용횟수를 저장할 배열을 선언해 줍니다.    이때 a~z는 26개 이므로 용량은 26으로 지정해줍니다.            for 문을 통해 s1문자열의 문자 사용횟수를 배열에 저장해 줍니다.    이때 'a'는 아스키 코드의 값으로 97이므로 해당 문자에 97을 빼주면 해당 문자의 인덱스가 됩니다.            for 문을 이용하여 아래의 과정을 통해 최종적으로 판별하게 됩니다.    이때 속도 향상을 위해 s2의 i번째 문자가 s1문자열에 1개도 없다면 다음 인덱스로 넘어가줍니다.                    s2문자열에서 i번째 부터 s1문자열 길이 만큼의 문자 사용 횟수를 저장할 배열을 선언해 줍니다.                        s1과 같은 방식으로 s2문자열의 문자 사용 횟수를 선언한 배열에 저장합니다.                        s1의 사용된 문자의 갯수와 s2의 문자의 사용된 갯수를 비교합니다.        이때 같으면 true를 반환해주고 1개라도 틀리면 바로 다음 인덱스로 넘어가 줍니다.                        위의 과정이 끝났다면 s2문자열은 s1문자열의 조합을 포함하지 않는 것이 되므로 false를 반환해 줍니다.    &lt;Coding&gt;class Solution {    public boolean checkInclusion(String s1, String s2) {    \tboolean check = false;    \tint[] spelling1 = new int[26];    \tfor(int i=0; i&lt;s1.length(); ++i)    \t\t++spelling1[s1.charAt(i)-97];    \tfor(int i=0; i&lt;s2.length()-s1.length()+1; ++i) {    \t\tif(spelling1[s2.charAt(i)-97]==0)continue;    \t\tint[] spelling2 = new int[26];    \t\tfor(int j=i; j&lt;s1.length()+i; ++j)    \t\t\t++spelling2[s2.charAt(j)-97];    \t\tfor(int j=0; j&lt;26; ++j) {    \t\t\tif(spelling1[j]==spelling2[j])check=true;    \t\t\telse{    \t\t\t\tcheck=false;    \t\t\t\tbreak;    \t\t\t}    \t\t}    \t\tif(check==true)return check;    \t}        return check;    }}&lt;결과&gt;SuccessDetails Runtime: 168 ms, faster than 22.14% of Java online submissions for Permutation in String.Memory Usage: 50.1 MB, less than 8.82% of Java online submissions for Permutation in String.",
+"url": "/leetcode-567"
+}
+,
+
 "leetcode-560": {
 "title": "leetcode - leetcode 560",
 "author": "gihwan319",

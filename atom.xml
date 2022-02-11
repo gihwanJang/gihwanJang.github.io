@@ -8,6 +8,24 @@
     
       
       <item>
+        <title>leetcode - leetcode 567</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+s1, s2 두개의 문자열이 주어졌을 때, 만약 s2의 하위 배열이 s1문자열의 모든문자를 사용한 조합으로 이루어 졌다면 true 아니면 false를 반환하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 11 Feb 2022 17:50:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-567</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-567</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 560</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
