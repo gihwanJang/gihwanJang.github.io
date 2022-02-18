@@ -8,6 +8,27 @@
     
       
       <item>
+        <title>leetcode - leetcode 21</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+정렬된 연결 리스트 list1과 list2의 head가 주어집니다.&lt;br /&gt;
+두 리스트를 하나의 정렬리스트로 합병합니다.&lt;br /&gt;
+처음의 두 리스트의 노드를 연결하여 리스트를 만들어야합니다.&lt;br /&gt;
+합병한 연결 리스트의 head를 반환하시오.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 19 Feb 2022 01:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-21</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-21</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 567</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

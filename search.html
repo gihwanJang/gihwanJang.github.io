@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-21": {
+"title": "leetcode - leetcode 21",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;정렬된 연결 리스트 list1과 list2의 head가 주어집니다.두 리스트를 하나의 정렬리스트로 합병합니다.처음의 두 리스트의 노드를 연결하여 리스트를 만들어야합니다.합병한 연결 리스트의 head를 반환하시오.&lt;Example1&gt;Input: list1 = [1,2,4], list2 = [1,3,4]Output: [1,1,2,3,4,4]&lt;Example2&gt;Input: list1 = [], list2 = []Output: []&lt;Example2&gt;Input: list1 = [], list2 = [0]Output: [0]&lt;설명&gt;        while문을 통해 아래의 과정을 반복하며 합병정렬합니다.    이때 종료조건은 list2가 null이 되면 종료합니다.                    list2의 노드를 추가하는 노드로 별도 선언하고 list2는 list의 next 즉 다음 노드로 이동시켜줍니다.                        list1을 선형 검색하기 위해 list1의 head를 받는 curr노드를 선언해 줍니다.                        list2의 노드를 list1에 합병하기위해 curr노드의 전노드를 저장하는 prev노드를 선언해 줍니다.        이때 초기는 더미노드를 값으로 설정하고 해당 더미 노드의 next를 curr로 설정해 줍니다.                        while문을 통해 list1에서 추가하는 노드의 값보다 처음으로 큰 노드까지 curr와 prev를 이동시킵니다.                        prev노드의 next를 추가하는 노드에 이어주고 추가하는 노드의 next를 curr노드에 이어줍니다.        이때 curr노드가 그대로 list1의 head이면 추가하는 노드가 head의 값보다 작거나 같음으로 list1의 head를 추가한 노드로 바꿔 줍니다.                        위의 반복이 끝나면 list1을 반환해 줍니다.    &lt;Coding&gt;class Solution {    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {    \twhile(list2!=null) {    \t\tListNode newNode=list2;    \t\tlist2=list2.next;    \t\tListNode curr = list1;    \t\tListNode prev = new ListNode(0,curr);    \t\twhile(curr!=null &amp;&amp; curr.val&lt;newNode.val) {    \t\t\tcurr=curr.next;    \t\t\tprev=prev.next;    \t\t}    \t\tprev.next=newNode;    \t\tnewNode.next=curr;    \t\tif(curr==list1)list1=newNode;    \t}        return list1;    }}&lt;결과&gt;SuccessDetails Runtime: 1 ms, faster than 62.60% of Java online submissions for Merge Two Sorted Lists.Memory Usage: 43.3 MB, less than 12.18% of Java online submissions for Merge Two Sorted Lists.",
+"url": "/leetcode-21"
+}
+,
+
 "leetcode-567": {
 "title": "leetcode - leetcode 567",
 "author": "gihwan319",
