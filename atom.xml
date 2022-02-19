@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 24</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+연결 리스트가 주어지면 인접한 모ㄴ 두 노드의 위치를 바꾸고 head를 반환하시오.&lt;br /&gt;
+이때 리스트의 노드에 있는 값을 수정하지 않고 문제를 해결해야 합니다.&lt;br /&gt;
+(즉, 노드 자체만 변경될 수 있음).
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 19 Feb 2022 22:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-24</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-24</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 21</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

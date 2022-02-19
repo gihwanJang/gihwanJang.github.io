@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-24": {
+"title": "leetcode - leetcode 24",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;연결 리스트가 주어지면 인접한 모ㄴ 두 노드의 위치를 바꾸고 head를 반환하시오.이때 리스트의 노드에 있는 값을 수정하지 않고 문제를 해결해야 합니다.(즉, 노드 자체만 변경될 수 있음).&lt;Example1&gt;Input: head = [1,2,3,4]Output: [1,1,2,3,4,4]&lt;Example2&gt;Input: head = []Output: []&lt;Example2&gt;Input: head = [1]Output: [1]&lt;설명&gt;    연결리스트의 노드를 방문할 curr를 head로 선언해 줍니다.    이때 head와 head의 next노드가 null이 아니면 head의 next노드가 head로 변경 되므로 head를 head의 next노드로 바꿔줍니다.            while문을 이용해 아래의 과정을 반목하며 모든 인접 노드들을 교환해 줍니다.    이때 해당 while문은 curr가 null이면 종료 됩니다.                    연결을 잇다 보면 접근할 수 없는 노드들이 생기므로 해당 주소들을 저장해줄 노드들을 선언해 줍니다.        curr의 다음 노드를 nextNode로 curr가 다음 방문해야 할 노드를 jumpNode로 선언해 주었습니다.        이때 curr의 nextNode는 curr의 next로 선언해 주면 되지만 jumpNode는 고정되 있지 않으므로 null로 선언해 주고 아래의 과정에서 판별하여 변경하도록 합니다.                        만약 nextNode가 null이 아니라면 curr의 next를 nextNode의 next로 바꿔줍니다.                        만약 nextNode가 null이 아니고 nextNode의 다음 노드가 null이 아니라면 jumpNode를 nextNode의 next로 바꿔줍니다.                        만약 nextNode가 null이 아니고 nextNode의 다음 노드가 null이 아니고 jumpNode의 다음 노드가 null이 아니라면 curr의 다음 노드를 jump노드의 다음 노드로 바꿔줍니다.                        만약 nextNode가 null이 아니라면 nextNode의 다음 노드를 curr노드로 바꿔줍니다.                        curr를 jump노드로 바꿔주고 조건을 확인하여 반복합니다.                        위의 반복이 끝나면 head을 반환해 줍니다.    &lt;Code&gt;class Solution {    public ListNode swapPairs(ListNode head) {    \tListNode curr=head;        if(head!=null&amp;&amp;head.next!=null)head=head.next;    \twhile(curr!=null) {    \t\tListNode nextNode=curr.next;    \t\tListNode jumpNode=null;    \t\tif(nextNode!=null) {                curr.next=nextNode.next;    \t\t\tif(nextNode.next!=null) {    \t\t\t\tjumpNode=nextNode.next;    \t\t\t\tif(jumpNode.next!=null)                        curr.next=nextNode.next.next;                }    \t\t\tnextNode.next=curr;    \t\t}    \t\tcurr=jumpNode;    \t}    \treturn head;    }}&lt;결과&gt;SuccessDetails Runtime: 0 ms, faster than 100.00% of Java online submissions for Swap Nodes in Pairs.Memory Usage: 39.7 MB, less than 60.55% of Java online submissions for Swap Nodes in Pairs.",
+"url": "/leetcode-24"
+}
+,
+
 "leetcode-21": {
 "title": "leetcode - leetcode 21",
 "author": "gihwan319",
