@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-50": {
+"title": "leetcode - leetcode 50",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;x의 n제곱을 계산하는 pow(x, n)를 구현하시오.&lt;Example1&gt;Input: x = 2.00000, n = 10Output: 1024.00000&lt;Example2&gt;Input: x = 2.10000, n = 3Output: 9.26100&lt;Example2&gt;Input: x = 2.00000, n = -2Output: 0.25000&lt;설명&gt;        거듭제곱의 수 상광 없이 일정한 x 즉 x값이 1또는 0일 경우 x를 반환합니다.    또한 x가 -1일 경우 거듭제곱 수 n이 짝수면 -x 홀수면 x를 반환합니다.            x의 n제곱을 저장할 변수 p를 선언후 1로 초기화 해줍니다.            거듭제곱 수 n이 양수이면 for문을 통해 n만큼 p에 x를 곱합니다.            거듭제곱 수 n이 음수이면 for문을 통해 n만큼 p에 x를 나눕니다.            p를 반환합니다.    &lt;Code&gt;class Solution {    public double myPow(double x, int n) {\t\tif(x==1||x==0)return x;    \tif(x==-1) {    \t\tif(n%2==0)return -x;    \t\telse return x;    \t}    \tdouble p=1;    \tif(n&gt;0)    \t\tfor(int i=0; i&lt;n; ++i) {    \t\t\tif(p!=0)p*=x;    \t\t\telse break;    \t\t}    \telse    \t\tfor(int i=0; i&gt;n; --i) {    \t\t\tif(p!=0)p/=x;    \t\t\telse break;    \t\t}\t\treturn p;\t}}&lt;결과&gt;SuccessDetails Runtime: 6 ms, faster than 5.90% of Java online submissions for Pow(x, n).Memory Usage: 42.3 MB, less than 27.65% of Java online submissions for Pow(x, n).Next challenges:",
+"url": "/leetcode-50"
+}
+,
+
 "leetcode-24": {
 "title": "leetcode - leetcode 24",
 "author": "gihwan319",
