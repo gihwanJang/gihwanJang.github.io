@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 169</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오.&lt;br /&gt;
+대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다.&lt;br /&gt;
+대부분의 값은 항상 존재한다고 가정합니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 21 Feb 2022 18:40:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-169</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-169</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 50</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

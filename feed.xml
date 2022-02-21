@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-02-20T22:23:45+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 50</title><link href="https://gihwanjang.github.io/leetcode-50" rel="alternate" type="text/html" title="leetcode - leetcode 50" /><published>2022-02-20T22:20:00+09:00</published><updated>2022-02-20T22:20:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-50</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-50">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-02-21T20:51:34+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 169</title><link href="https://gihwanjang.github.io/leetcode-169" rel="alternate" type="text/html" title="leetcode - leetcode 169" /><published>2022-02-21T18:40:00+09:00</published><updated>2022-02-21T18:40:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-169</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-169">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오.&lt;br /&gt;
+대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다.&lt;br /&gt;
+대부분의 값은 항상 존재한다고 가정합니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [3,2,3]&lt;br /&gt;
+Output: 3
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: nums = [2,2,1,1,1,2,2]&lt;br /&gt;
+Output: 2
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    대부분을 차지하는 값은 배열에 n/2의 갯수 만큼 들어가 있으므로 배열을 정렬했을 때 해당 배열의 중앙에 대부분을 차지하는 값이 배치되므로 중앙값을 반환하면 됩니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;majorityElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 3 ms, faster than 64.69% of Java online submissions for Majority Element.&lt;br /&gt;
+Memory Usage: 56 MB, less than 21.51% of Java online submissions for Majority Element.
+Next challenges:
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오. 대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다. 대부분의 값은 항상 존재한다고 가정합니다.</summary></entry><entry><title type="html">leetcode - leetcode 50</title><link href="https://gihwanjang.github.io/leetcode-50" rel="alternate" type="text/html" title="leetcode - leetcode 50" /><published>2022-02-20T22:20:00+09:00</published><updated>2022-02-20T22:20:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-50</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-50">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
 &lt;p&gt;
 x의 n제곱을 계산하는 pow(x, n)를 구현하시오.
 &lt;/p&gt;
@@ -622,77 +667,4 @@ Success&lt;br /&gt;
 Details &lt;br /&gt;
 Runtime: 1 ms, faster than 99.79% of Java online submissions for Find the Difference.&lt;br /&gt;
 Memory Usage: 40.7 MB, less than 15.81% of Java online submissions for Find the Difference.
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 문자열 s, t가 주어집니다. 문자열 t는 문자열 s를 썩은 뒤 랜덤한 한 글자를 임의의 위치에 추가하여 생성 됩니다. t에 추가된 한글자를 반환하시오.</summary></entry><entry><title type="html">leetcode - leetcode 80</title><link href="https://gihwanjang.github.io/leetcode-80" rel="alternate" type="text/html" title="leetcode - leetcode 80" /><published>2022-02-06T21:00:00+09:00</published><updated>2022-02-06T21:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-80</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-80">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다.&lt;br /&gt;
-일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다.&lt;br /&gt;
-즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다.
-&lt;br /&gt;
- k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다.&lt;br /&gt;
- 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다.&lt;br /&gt;
- 다른 배열 즉 추가 공간을 할당하지 마십시오.&lt;br /&gt;
- O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: nums = [1,1,1,2,2,3]&lt;br /&gt;
-Output: 5, nums = [1,1,2,2,3,_]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: nums = [0,0,1,1,1,1,2,3,3]&lt;br /&gt;
-Output: 7, nums = [0,0,1,1,2,3,3,_,_]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    중복된 값들을 카운트해줄 변수를 선언해 줍니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    for문을 통해 2번째 인덱스 부터 (주어진 배열의 길이-중복된 갯수의 값)의 인덱스 까지 순차적으로 접근하며 아래의 과정을 반복합니다.
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같을 경우 값은 최소 3개 이므로 
-        for 문을 통해 해당 인덱스 다음값들을 해당 인덱스 쪽으로 당깁니다.&lt;br /&gt;
-        카운트를 증가 시켜 줍니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        만약 해당 인덱스의 값과 해당 인덱스-2의 값이 같지 않을 경우 다음 인덱스로 넘어갑니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    (주어진 배열의 길이-중복된 갯수의 값)을 반환해 줍니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removeDuplicates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    				&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-Success&lt;br /&gt;
-Details &lt;br /&gt;
-Runtime: 1 ms, faster than 65.03% of Java online submissions for Remove Duplicates from Sorted Array II.&lt;br /&gt;
-Memory Usage: 42.3 MB, less than 15.08% of Java online submissions for Remove Duplicates from Sorted Array II.
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 내림차순으로 정렬된 정수 배열이 주어졌을 때, 각 요소가 최대 두 번 나타나도록 일부 중복을 제거합니다. 일부 언어에서는 배열의 길이를 변경하는 것이 불가능하기 때문에 대신 배열 nums의 첫 번째 부분에 결과를 배치해야 합니다. 즉 중복을 제거한 후 배열의 마지막 인덱스가 k인 경우 nums의 배열의 0~k-1인덱스 까지는 결과 배열이 되어야 합니다. k인덱스 부터는 해당 인덱스의 값이 무엇이든 신경쓰지 않습니다. 배열 nums에 0~k-1 인덱스에에 최종 결과를 배치한 후 k를 반환합니다. 다른 배열 즉 추가 공간을 할당하지 마십시오. O(1) 추가 메모리를 사용하여 제자리에서 입력 배열을 수정하여 이 작업을 수행해야 합니다.</summary></entry></feed>
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 문자열 s, t가 주어집니다. 문자열 t는 문자열 s를 썩은 뒤 랜덤한 한 글자를 임의의 위치에 추가하여 생성 됩니다. t에 추가된 한글자를 반환하시오.</summary></entry></feed>
