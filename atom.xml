@@ -8,6 +8,33 @@
     
       
       <item>
+        <title>leetcode - leetcode 171</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+엑셀의 열의 번호를 나타내는 문자열 columnTitle이 주어 졌을 때 이것과 일치하는 열 번호를 반환하시오.&lt;br /&gt;
+For example:&lt;br /&gt;
+A -&amp;gt; 1&lt;br /&gt;
+B -&amp;gt; 2&lt;br /&gt;
+C -&amp;gt; 3&lt;br /&gt;
+...&lt;br /&gt;
+Z -&amp;gt; 26&lt;br /&gt;
+AA -&amp;gt; 27&lt;br /&gt;
+AB -&amp;gt; 28&lt;br /&gt;
+...
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 22 Feb 2022 12:40:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-171</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-171</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 169</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

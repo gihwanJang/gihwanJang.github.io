@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-171": {
+"title": "leetcode - leetcode 171",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;엑셀의 열의 번호를 나타내는 문자열 columnTitle이 주어 졌을 때 이것과 일치하는 열 번호를 반환하시오.For example:A -&gt; 1B -&gt; 2C -&gt; 3...Z -&gt; 26AA -&gt; 27AB -&gt; 28...&lt;Example1&gt;Input: columnTitle = \"A\"Output: 1&lt;Example2&gt;Input: columnTitle = \"AB\"Output: 28&lt;Example2&gt;Input: columnTitle = \"ZY\"Output: 701&lt;설명&gt;        열의 값을 변환하여 저장할 changeNum을 0으로 선언해 줍니다.            for문을 통해 문자열을 각 단어들에 접근하여 아래의 과정을 통해 값을 변환해 줍니다.                    해당 문자열을 각자리 수가 26의 곱의 값을 가지는 26진법 이므로 해당 값에 26을 곱하여 자릿 수를 올려 줍니다.        이때 처음의 값은 0이므로 처음에는 반영되지 않습니다.                        해당 자릿수의 값에 문자를 숫자로 바꾸어 더해줍니다.        이때 A는 아스키 코드로 65의 값을 가지므로 64를 빼줍니다.                        위의 반복이 끝나면 changeNum를 반환해 줍니다.    &lt;Code&gt;class Solution {    public int titleToNumber(String columnTitle) {    \tint changeNum=0;    \tfor(int i=0; i&lt;columnTitle.length(); ++i) {    \t\tchangeNum*=26;    \t\tchangeNum+=columnTitle.charAt(i)-64;    \t}        return changeNum;    }}&lt;결과&gt;SuccessDetails Runtime: 1 ms, faster than 99.69% of Java online submissions for Excel Sheet Column Number.Memory Usage: 42.8 MB, less than 22.96% of Java online submissions for Excel Sheet Column Number.",
+"url": "/leetcode-171"
+}
+,
+
 "leetcode-169": {
 "title": "leetcode - leetcode 169",
 "author": "gihwan319",
