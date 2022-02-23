@@ -50,11 +50,7 @@
     <meta property="og:site_name" content="Learning to coding" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="DataStructure - 자료구조Ch.03-4" />
-    <meta property="og:description" content="
-자료구조 Ch.02 : 트리
-
-
-" />
+    <meta property="og:description" content="자료구조 Ch.02 : 트리 이진 탐색 트리(Binary Search Tree) 이진 탐색 트리는 이진 트리의 한 종류로서 각 노드들은 왼쪽 자식과 오른쪽 자식 2개의 자식을 같습니다. 이때 노드의 왼쪽 하위 트리에는 노드의 값보다 작은 값이있는 노드 만 포함되고 노드의 오른쪽 하위 트리에는 노드의 값보다 큰 값이있는 노드 만 포함됩니다. 그러므로 값의" />
     <meta property="og:url" content="https://gihwanJang.github.io/dataStructure-ch03-4" />
     <meta property="og:image" content="https://gihwanJang.github.io/assets/built/images/dataStruct.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -64,11 +60,7 @@
     <meta property="article:tag" content="Datastructure" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="DataStructure - 자료구조Ch.03-4" />
-    <meta name="twitter:description" content="
-자료구조 Ch.02 : 트리
-
-
-" />
+    <meta name="twitter:description" content="자료구조 Ch.02 : 트리 이진 탐색 트리(Binary Search Tree) 이진 탐색 트리는 이진 트리의 한 종류로서 각 노드들은 왼쪽 자식과 오른쪽 자식 2개의 자식을 같습니다. 이때 노드의 왼쪽 하위 트리에는 노드의 값보다 작은 값이있는 노드 만 포함되고 노드의 오른쪽 하위 트리에는 노드의 값보다 큰 값이있는 노드 만 포함됩니다. 그러므로 값의" />
     <meta name="twitter:url" content="https://gihwanJang.github.io/" />
     <meta name="twitter:image" content="https://gihwanJang.github.io/assets/built/images/dataStruct.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -100,11 +92,7 @@
         "@type": "WebPage",
         "@id": "https://gihwanJang.github.io/dataStructure-ch03-4"
     },
-    "description": "
-자료구조 Ch.02 : 트리
-
-
-"
+    "description": "자료구조 Ch.02 : 트리 이진 탐색 트리(Binary Search Tree) 이진 탐색 트리는 이진 트리의 한 종류로서 각 노드들은 왼쪽 자식과 오른쪽 자식 2개의 자식을 같습니다. 이때 노드의 왼쪽 하위 트리에는 노드의 값보다 작은 값이있는 노드 만 포함되고 노드의 오른쪽 하위 트리에는 노드의 값보다 큰 값이있는 노드 만 포함됩니다. 그러므로 값의"
 }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500744719024251"
@@ -208,6 +196,758 @@ into the {body} of the default.hbs template -->
 자료구조 Ch.02 : 트리
 </p>
 
+<p>이진 탐색 트리(Binary Search Tree)</p>
+<p>
+이진 탐색 트리는 이진 트리의 한 종류로서 각 노드들은 왼쪽 자식과 오른쪽 자식 2개의 자식을 같습니다.<br />
+이때 노드의 왼쪽 하위 트리에는 노드의 값보다 작은 값이있는 노드 만 포함되고 노드의 오른쪽 하위 트리에는 노드의 값보다 큰 값이있는 노드 만 포함됩니다.<br />
+그러므로 값의 중복을 허용하지 않습니다.<br />
+또한 이진 탐색 트리는 모든 하위 트리는 위의 이진 탐색 트리의 조건을 만족합니다.
+</p>
+
+<p>
+(코드)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">BST</span><span class="o">&lt;</span><span class="no">E</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;&gt;</span> <span class="kd">implements</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;,</span> <span class="nc">Cloneable</span><span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+		<span class="kd">private</span> <span class="nc">Object</span> <span class="n">item</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">right</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">left</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">value</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kd">class</span> <span class="nc">BSTIterator</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;{</span>
+		<span class="kd">private</span>  <span class="kt">int</span> <span class="n">cursor</span> <span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">cursor</span><span class="o">&lt;</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="nd">@Override</span>
+		<span class="kd">public</span> <span class="no">E</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="o">(</span><span class="no">E</span><span class="o">)</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">cursor</span><span class="o">++).</span><span class="na">item</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="nc">Node</span> <span class="n">root</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">visitedOrder</span><span class="o">;</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">BFS</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">preorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">inorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">postorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="nc">Node</span> <span class="nf">findNode</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">nextNode</span><span class="o">=((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">?</span> <span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">:</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="k">return</span> <span class="n">nextNode</span><span class="o">!=</span><span class="kc">null</span><span class="o">?</span> <span class="n">findNode</span><span class="o">(</span><span class="n">nextNode</span><span class="o">,</span> <span class="n">val</span><span class="o">):</span> <span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="nc">Node</span> <span class="nf">findNode</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">,</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">parents</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">nextNode</span><span class="o">=((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">?</span> <span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">:</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">nextNode</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">parents</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+				<span class="k">return</span> <span class="nf">findNode</span><span class="o">(</span><span class="n">nextNode</span><span class="o">,</span> <span class="n">val</span><span class="o">,</span> <span class="n">parents</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">int</span> <span class="nf">height</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">)&gt;</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">)?</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">):</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="o">+</span><span class="n">h</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">removeChild</span><span class="o">(</span><span class="nc">Node</span> <span class="n">parent</span><span class="o">,</span><span class="nc">Node</span> <span class="n">child</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">descendant</span><span class="o">=</span><span class="n">child</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">?</span> <span class="n">child</span><span class="o">.</span><span class="na">left</span><span class="o">:</span> <span class="n">child</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">parent</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">root</span> <span class="o">=</span> <span class="n">descendant</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">child</span><span class="o">.</span><span class="na">item</span><span class="o">)&gt;=</span><span class="mi">0</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="n">descendant</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">parent</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">descendant</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">balanceTree</span><span class="o">(</span><span class="kt">int</span> <span class="n">lo</span><span class="o">,</span> <span class="kt">int</span> <span class="n">hi</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">lo</span><span class="o">==</span><span class="n">hi</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">lo</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+		<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="n">hi</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">hi</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">lo</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">lo</span><span class="o">+(</span><span class="n">hi</span><span class="o">-</span><span class="n">lo</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">balanceTree</span><span class="o">(</span><span class="n">lo</span><span class="o">,</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">balanceTree</span><span class="o">(</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">hi</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">BST</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nf">BST</span><span class="o">(</span><span class="nc">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span><span class="o">(</span><span class="nc">Object</span> <span class="nl">v:</span><span class="n">arr</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span><span class="kc">true</span><span class="o">:</span><span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">height</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">height</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">)-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">index</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">index</span><span class="o">&gt;</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="n">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span><span class="n">val</span><span class="o">).</span><span class="na">item</span><span class="o">==</span><span class="n">val</span><span class="o">)</span><span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">lo</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">hi</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">lo</span><span class="o">&lt;=</span><span class="n">hi</span><span class="o">){</span>
+			<span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">lo</span><span class="o">+(</span><span class="n">hi</span><span class="o">-</span><span class="n">lo</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span> <span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">mid</span><span class="o">;</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span> <span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">){</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">mid</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">hi</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="n">lo</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span> <span class="n">val</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">)</span> <span class="n">parent</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">parent</span><span class="o">.</span><span class="na">right</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">return</span><span class="o">;</span>
+		<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">parents</span><span class="o">=</span><span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Node</span> <span class="n">delNode</span> <span class="o">=</span> <span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span> <span class="n">val</span><span class="o">,</span> <span class="n">parents</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">delNode</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)!=</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">delNode</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">&amp;&amp;</span><span class="n">delNode</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">delNode</span><span class="o">;</span>
+			<span class="nc">Node</span> <span class="n">prevNode</span><span class="o">=</span><span class="n">delNode</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">prevNode</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">parent</span> <span class="o">=</span><span class="n">prevNode</span><span class="o">;</span>
+				<span class="n">prevNode</span> <span class="o">=</span> <span class="n">prevNode</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">delNode</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">prevNode</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="n">removeChild</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span> <span class="n">prevNode</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">parents</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()?</span> <span class="kc">null</span><span class="o">:</span><span class="n">parents</span><span class="o">.</span><span class="na">lastElement</span><span class="o">();</span>
+			<span class="n">removeChild</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span><span class="n">delNode</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">balanceTree</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+		<span class="n">balanceTree</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">visitedOrder</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="no">BST</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">CloneNotSupportedException</span><span class="o">{</span>
+		<span class="no">BST</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">cloned</span> <span class="o">=</span> <span class="k">new</span> <span class="no">BST</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;();</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span> 
+		<span class="k">this</span><span class="o">.</span><span class="na">preorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="nc">Node</span> <span class="nl">n:</span> <span class="n">visitedOrder</span><span class="o">)</span>
+			<span class="n">cloned</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">item</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">cloned</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">(){</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">BSTIterator</span><span class="o">();</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="no">BFS</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">childNum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="nc">String</span> <span class="n">str</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)++</span><span class="n">childNum</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)++</span><span class="n">childNum</span><span class="o">;</span>
+		<span class="n">str</span><span class="o">+=</span><span class="s">"value : "</span><span class="o">+</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">item</span><span class="o">+</span><span class="s">", child : "</span><span class="o">+</span><span class="n">childNum</span><span class="o">+</span><span class="s">"\n"</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">(),</span><span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">;--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">levelsChild</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">childNum</span><span class="o">;++</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">currNodeChild</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+				<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)++</span><span class="n">currNodeChild</span><span class="o">;</span>
+				<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)++</span><span class="n">currNodeChild</span><span class="o">;</span>
+				<span class="n">str</span><span class="o">+=</span><span class="s">"value : "</span><span class="o">+</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">item</span><span class="o">+</span><span class="s">", child : "</span><span class="o">+</span><span class="n">currNodeChild</span><span class="o">+</span><span class="s">" "</span><span class="o">;</span>
+				<span class="n">levelsChild</span><span class="o">+=</span><span class="n">currNodeChild</span><span class="o">;</span>
+				<span class="o">++</span><span class="n">index</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">childNum</span><span class="o">=</span><span class="n">levelsChild</span><span class="o">;</span>
+			<span class="n">str</span><span class="o">+=</span><span class="s">"\n"</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+(Node 내부 클래스)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+		<span class="kd">private</span> <span class="nc">Object</span> <span class="n">item</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">right</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nc">Node</span> <span class="n">left</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="kd">private</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">value</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리의 Node내부 클래스입니다.<br />
+해당 노드는 값, 외쪽 자식 노드, 오른쪽 자식 노드 가지고 구성 됩니다.<br />
+item : 실질적인 데이터를 저장하는 변수입니다.<br />
+right : 오른쪽 자식 노드를 저장하는 변수로 기본 값이 null로 선언되어 있습니다.<br />
+left : 왼쪽 자식 노드를 저장하는 변수로 기본 값이 null로 선언되어 있습니다.
+</p>
+
+<p>
+(이진 탐색 트리 멤버변수)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="nc">Node</span> <span class="n">root</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">visitedOrder</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>
+Tree의 멤버변수입니다.<br />
+root : 트리의 최상단 노드를 저장하는 변수로 트리에 1개만이 존재합니다.<br />
+size : 노드의 갯수를 저장하는 변수입니다.<br />
+visitedOrder : 방문한 노드들을 저장하는 리스트입니다.
+</p>
+
+<p>
+(이진 탐색 트리 멤버변수)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="nc">Node</span> <span class="n">root</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">visitedOrder</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>
+Tree의 멤버변수입니다.<br />
+root : 트리의 최상단 노드를 저장하는 변수로 트리에 1개만이 존재합니다.<br />
+size : 노드의 갯수를 저장하는 변수입니다.<br />
+visitedOrder : 방문한 노드들을 저장하는 리스트입니다.
+</p>
+
+<p>
+(너비 우선 탐색(BFS))
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">BFS</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="nc">Queue</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(!</span><span class="n">queue</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">curr</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+				<span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">curr</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+너비 우선 으로 방문하여 visitedOrder에 방문 노드를 저장하는 메소드 입니다.<br />
+큐를 이용하여 노드를 넣고 해당 노드를 꺼내 꺼낸 노드의 왼,오른 자식 들을 모두 큐에 넣는 작업을 반복하여 같은 레벨의 노드들을 차례대로 방문합니다.
+</p>
+
+<p>
+(전위 순회(preorder))
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">preorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리를 전위 순회하는 메소드입니다.<br />
+현재 노드, 왼쪽 자식 노드, 오른쪽 자식 노드 순으로 순회합니다.<br />
+위의 순서로 방문하기 때문에 preorder로 생성된 visitedOrder의 노드들을 순서대로 삽입할 시 해당 이진 탐색 트리와 동일한 이진 탐색 트리가 생성됩니다.
+</p>
+
+<p>
+(중위 순회(inorder))
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">inorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리를 중위 순회하는 메소드입니다.<br />
+왼쪽 자식 노드, 현재 노드, 오른쪽 자식 노드 순으로 순회합니다.<br />
+위의 순서로 방문하기 때문에 inorder로 생성된 visitedOrder는 정렬된 리스트가 됩니다.
+</p>
+
+<p>
+(후위 순회(inorder))
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">postorder</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리를 후위 순회하는 메소드입니다.<br />
+왼쪽 자식 노드, 현재 노드, 오른쪽 자식 노드 순으로 순회합니다.<br />
+위의 순서로 방문하기 때문에 preorder로 생성된 visitedOrder는 주로 트리를 삭제하는 메소드에 많이 사용 됩니다.<br />
+이유는 부모노드를 삭제하기 전에 자식 노드를 삭제하는 순으로 노드를 삭제해야 하기 때문입니다.
+</p>
+
+<p>
+(findNode)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="nc">Node</span> <span class="nf">findNode</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">nextNode</span><span class="o">=((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">?</span> <span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">:</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="k">return</span> <span class="n">nextNode</span><span class="o">!=</span><span class="kc">null</span><span class="o">?</span> <span class="n">findNode</span><span class="o">(</span><span class="n">nextNode</span><span class="o">,</span> <span class="n">val</span><span class="o">):</span> <span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+특정 값의 노드 혹은 해당 값의 부모가 될 노드를 찾는 메소드 입니다.<br />
+노드의 값이 특정 값과 같으면 해당 노드를 반환합니다.<br />
+아닐 시 다음 확인할 노드를 선언합니다.<br />
+이때 다음 노드는 노드의 값이 특정 값보다 크면 해당 노드의 왼쪽 자식 노드가 되고 아니면 오른쪽 자식 노드가 됩니다.<br />
+최종적으로 다음 노드가 null이 아니면  재귀적으로 특정 값에 가장 가까운 말단 값을 찾아 반환합니다.
+</p>
+
+<p>
+(findNode)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="nc">Node</span> <span class="nf">findNode</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">,</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">parents</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">nextNode</span><span class="o">=((</span><span class="no">E</span><span class="o">)</span><span class="n">node</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">?</span> <span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">:</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">nextNode</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">parents</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+				<span class="k">return</span> <span class="nf">findNode</span><span class="o">(</span><span class="n">nextNode</span><span class="o">,</span> <span class="n">val</span><span class="o">,</span> <span class="n">parents</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+특정 값의 노드를 찾고 해당 값의 부모 노드들의 리스트를 만드는 메소드 입니다.<br />
+노드의 값이 특정 값과 같으면 해당 노드를 반환합니다.<br />
+아닐 시 다음 확인할 노드를 선언합니다.<br />
+이때 다음 노드는 노드의 값이 특정 값보다 크면 해당 노드의 왼쪽 자식 노드가 되고 아니면 오른쪽 자식 노드가 됩니다.<br />
+이때 다음 노드가 null이 아니라면 즉 찾는 노드가 아니라면 부모노드들을 저장하는 parents스텍에 push하고 찾는 노드라면 push하지 않고 반환합니다.
+</p>
+
+<p>
+(height)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">int</span> <span class="nf">height</span><span class="o">(</span><span class="nc">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span><span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">)&gt;</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">)?</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">):</span><span class="n">height</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="o">+</span><span class="n">h</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 검색 트리의 가장긴 루트의 노드 갯수를 반환하는 메소드입니다.<br />
+재귀적으로 node의 왼쪽 자식과 오른쪽 자식 모두를 내려가며 탐색합니다.<br />
+노드를 거칠 때 마다 +1연산을 하고 값들 중 가장 큰 값을 반환합니다.
+</p>
+
+<p>
+(removeChild)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">removeChild</span><span class="o">(</span><span class="nc">Node</span> <span class="n">parent</span><span class="o">,</span><span class="nc">Node</span> <span class="n">child</span> <span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">descendant</span><span class="o">=</span><span class="n">child</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">?</span> <span class="n">child</span><span class="o">.</span><span class="na">left</span><span class="o">:</span> <span class="n">child</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">parent</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">root</span> <span class="o">=</span> <span class="n">descendant</span><span class="o">;</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">child</span><span class="o">.</span><span class="na">item</span><span class="o">)&gt;=</span><span class="mi">0</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="n">descendant</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">parent</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">descendant</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">--</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+특정 노드와 특정 노드의 부모노드를 받아 특정 노드를 삭제하는 메소드입니다.<br />
+삭제 될 노드의 후손 노드를 선언해 줍니다.<br />
+해당 후손 노드는 만약 왼쪽 자식 노드가 있다면 왼쪽 자식 노드로 없다면 오른쪽 자식 노드로 지정해 줍니다.<br />
+만약 부모 노드가 null이라면 삭제 될 노드는 root이므로 후손 노드를 root로 지정해 줍니다.<br />
+null이 아니라면 부모노드의 값이 삭제 노드의 값 보다 크거나 같다면 자손 노드는 부모 노드의 왼쪽 자식이 되고 작다면 오른쪽 자식 노드가 됩니다.<br />
+최종적으로 노드가 삭제됬음으로 size를 감소 시켜줍니다.
+</p>
+
+<p>
+(balanceTree)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">balanceTree</span><span class="o">(</span><span class="kt">int</span> <span class="n">lo</span><span class="o">,</span> <span class="kt">int</span> <span class="n">hi</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">lo</span><span class="o">==</span><span class="n">hi</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">lo</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+		<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="o">==</span><span class="n">hi</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">hi</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">lo</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">lo</span><span class="o">+(</span><span class="n">hi</span><span class="o">-</span><span class="n">lo</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">balanceTree</span><span class="o">(</span><span class="n">lo</span><span class="o">,</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">balanceTree</span><span class="o">(</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">hi</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+완전 이진 트리가 되도록 트리를 재구성하는 메소드입니다.<br />
+이진 탐색 트리는 특정 값을 기준으로 작으면 좌측 크면 우측에 위치하기 때문에 완전 이진 트리를 만들기 위해서는 중앙 값을 넣고 해당 중앙 값을 기준으로 나눈 중앙 값을 반복하여 넣으면 됩니다.<br />
+inorder로 생성된 정렬 리스트 visitedOrder를 이용하여 처음 인덱스 low값과 마즈막 인덱스 hight 값을 받습니다.<br />
+이때 lo 와 hi 가 같다면  값이 하나 밖에 없음으로 해당 값을 트리에 add해 줍니다.<br />
+lo+1이 hi와 같다면 mid가 없고 값이 2개 뿐 이므로 해당 두 값들을 트리에 add해 줍니다.<br />
+위의 경우가 아니라면 lo와 hi를 더하고 나누기 2를 하여 mid 중앙 인덱스를 찾고 해당 중앙 인덱스 값을 트리에 add하고 해당 메소드에 mid를 기준으로 lo~mid-1, mid+1,hi로 나누어 해당 메소드를 재귀 호출하여 트리를 완전 이진 트리로 재구성합니다.
+</p>
+
+<p>
+(생성자)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nf">BST</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="nf">BST</span><span class="o">(</span><span class="nc">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span><span class="o">(</span><span class="nc">Object</span> <span class="nl">v:</span><span class="n">arr</span><span class="o">)</span> <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리의 생성자입니다.<br />
+인자 없이 생성 할 경우 root는 null이고 size가 0 인 빈 이진 탐색 트리가 생성됩니다.<br />
+삽입할 값들을 인자로 주고 생성 할 경우 해당 값들을 모두 add하여 해당 값들이 추가 된 이진 탐색 트리가 생성됩니다.
+</p>
+
+<p>
+(isEmpty)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span><span class="kc">true</span><span class="o">:</span><span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+이진 탐색 트리가 비었는지 확인하는 메소드입니다.<br />
+size가 0이면 true 아니면 false를 반환합니다.
+</p>
+
+<p>
+(size)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+노드의 갯수 즉 size를 반환하는 메소드입니다.
+</p>
+
+<p>
+(height)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">height</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">height</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">)-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리의 높이를 반환하는 메소드 입니다.<br />
+height메소드에 root인자를 주어 가장 긴 루트의 노드 갯수를 받고 해당 값에 1을 뺀 값을 반환합니다.
+</p>
+
+<p>
+(height)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리를 초기화 하는 메소드입니다.<br />
+size를 0으로 root를 null로 초기화해 줍니다.
+</p>
+
+<p>
+(get)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">index</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">index</span><span class="o">&gt;</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span><span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="n">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리의 특정 인덱스 값을 받아오는 메소드입니다.<br />
+inorder를 통해 정렬된 리스트 visitedOrder를 생성 후 해당 인덱스의 값을 반환합니다.
+</p>
+
+<p>
+(contains)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span><span class="n">val</span><span class="o">).</span><span class="na">item</span><span class="o">==</span><span class="n">val</span><span class="o">)</span><span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리에 특정 값의 노드가 존재하는지 확인하는 메소드입니다.
+해당 트리가 빈 트리라면 false를 리턴합니다.<br />
+아니라면 findNode메소드에 root와 특정 값을 주고 반환된 노드의 값이 특정 값과 같으면 true를 아니면 false를 반환합니다.
+</p>
+
+<p>
+(contains)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">indexOf</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">lo</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">hi</span><span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">lo</span><span class="o">&lt;=</span><span class="n">hi</span><span class="o">){</span>
+			<span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="n">lo</span><span class="o">+(</span><span class="n">hi</span><span class="o">-</span><span class="n">lo</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span> <span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">mid</span><span class="o">;</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">mid</span><span class="o">).</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span> <span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">){</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">mid</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">hi</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="n">lo</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리에 특정 값의 노드가 위치하는 인덱스를 반환하는 메소드입니다.
+inorder를 통해 정렬된 리스트 visitedOrder를 생성 후 이진 탐색을 통해 해당 값이 있으면 해당 인덱스를 없다면 -1을 반환합니다.
+</p>
+
+<p>
+(add)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Node</span> <span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span> <span class="n">val</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)==</span><span class="mi">0</span><span class="o">)</span><span class="k">return</span><span class="o">;</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">parent</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)&gt;</span><span class="mi">0</span><span class="o">)</span> <span class="n">parent</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">parent</span><span class="o">.</span><span class="na">right</span><span class="o">=</span><span class="n">newNode</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">++</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리에 새로운 값의 노드를 추가하는 메소드입니다.<br />
+주어진 값을 가지는 노드를 생성합니다.<br />
+트리가 빈트리 라면 새로 생성한 노드는 root가 됩니다.<br />
+아니라면 findNode에 root 부터 탐색하기 위해 root와 특정 값 val을 주어 부모노드를 받아옵니다.<br />
+이때 해당 값이 이미 트리에 존재하여 findNode를 통해 부모노드가 아닌 해당 값을 가진 노드가 반환 될 수 있음으로 해당 부모 노드와 입력 값을 비교하여 같다면 멈춥니다.<br />
+같지않다면 해당 부모 노드의 값과 입력 값을 비교하여 부모노드 보다 작다면 왼쪽 자식으로 크다면 오른쪽 자식으로 지정해 줍니다.<br />
+최종적으로 노드가 추가 됬음으로 size를 증가시켜줍니다.
+</p>
+
+<p>
+(remove)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">return</span><span class="o">;</span>
+		<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Node</span><span class="o">&gt;</span> <span class="n">parents</span><span class="o">=</span><span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;&gt;();</span>
+		<span class="nc">Node</span> <span class="n">delNode</span> <span class="o">=</span> <span class="n">findNode</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">,</span> <span class="n">val</span><span class="o">,</span> <span class="n">parents</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(((</span><span class="no">E</span><span class="o">)</span><span class="n">delNode</span><span class="o">.</span><span class="na">item</span><span class="o">).</span><span class="na">compareTo</span><span class="o">((</span><span class="no">E</span><span class="o">)</span><span class="n">val</span><span class="o">)!=</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">delNode</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">&amp;&amp;</span><span class="n">delNode</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">delNode</span><span class="o">;</span>
+			<span class="nc">Node</span> <span class="n">prevNode</span><span class="o">=</span><span class="n">delNode</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">prevNode</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">parent</span> <span class="o">=</span><span class="n">prevNode</span><span class="o">;</span>
+				<span class="n">prevNode</span> <span class="o">=</span> <span class="n">prevNode</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="n">delNode</span><span class="o">.</span><span class="na">item</span><span class="o">=</span><span class="n">prevNode</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+			<span class="n">removeChild</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span> <span class="n">prevNode</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="nc">Node</span> <span class="n">parent</span><span class="o">=</span><span class="n">parents</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()?</span> <span class="kc">null</span><span class="o">:</span><span class="n">parents</span><span class="o">.</span><span class="na">lastElement</span><span class="o">();</span>
+			<span class="n">removeChild</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span><span class="n">delNode</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리에서 특정 값을 삭제하는 메소드입니다.<br />
+삭제는 3가지 경우로 나누어 해당 값을 삭제 하였습니다.<br />
+우선 해당 값의 노드가 말단 노드일 경우 바로 해당 노드를 삭제합니다.<br />
+두번째로 해당 값의 노드의 자식 노드가 1개인 경우 해당 자식 노드를 부모 노드에 해당 노드가 있던 위치에 연결시켜줍니다.<br />
+마즈막으로 해당 값의 노드의 자식이 둘인 경우  왼쪽 부분 트리 중 값이 가장 큰 노드와 값을 교체후 교체한 말단 노드를 삭제합니다.<br />
+위의 경우에 따라 노드를 삭제를 하기위해서는 부모 노드가 필요하므로 부모 노드를 받는 parents리스트를 선언해 줍니다.<br />
+findNode메소드를 통해 parents의 리스트를 받고 삭제할 노드를 받아옵니다.<br />
+이때 삭제할 노드가 없다면 해당 메소드는 종료 됩니다.<br />
+만약 삭제 노드의 자식이 두개라면 왼쪽 자식 노드의 자식들 중 가장 우측 하단에 있는 노드 즉 좌측 서브 트리의 가장큰 값의 노드를 찾고 해당 노드와 삭제할 노드의 값을 바꿉니다.<br />
+삭제노드를 바꾼 노드로 바꾸고 removeChild메소드를 통해 삭제해 줍니다.<br />
+자식이 2개가 아닌 경우 removechild 메소드를 통해 해당 노드를 삭제해 줍니다.
+</p>
+
+<p>
+(balanceTree)
+</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">balanceTree</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">visitedOrder</span><span class="o">=</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">);</span>
+		<span class="n">inorder</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+		<span class="n">balanceTree</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">visitedOrder</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+	<span class="o">}</span>
+</code></pre></div></div>
+
+<p>
+트리를 완전 이진 트리로 재구성하는 메소드 입니다.<br />
+visitedOrder를 inorder메소드를 통해 정렬된 리스트로 생성합니다.<br />
+해당 트리를 clear메소드를 통해 초기화합니다.<br />
+balanceTree메소드를 통해 트리를 재구성 해줍니다.
+</p>
+
+<p>&lt;정리&gt;</p>
+<p>
+위의 코드의 이진 탐색 트리는 삽입하는 순서에 따라 트리의 모습이 결정되기 때문에 삽입 또는 검색시에 앞의 값보다 현재의 값이 계속 커지거나 작아지는 최악의 경우 O(n)의 시간이 걸리게 됩니다.<br />
+위는 해당 트리를 완전 이진 트리로 트리를 유지할 시 O(logn)의 시간으로 실행 할 수 있지만 계속해서 balanceTree메소드를 실행하는 것은 비효율 적입니다.<br />
+이 문제를 해결주는 AVL, RedBlackTree 등이 있습니다.<br />
+다음 post에서는 기본 이진 탐색 트리를 좀더 효율 적으로 해주는 AVL에 관혀여 post하도록 하겠습니다.
+</p>
 
                 </div>
             </section>
