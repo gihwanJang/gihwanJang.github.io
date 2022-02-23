@@ -42,8 +42,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="coding 학습 블로그" />
-    <link rel="shortcut icon" href="https://gihwanJang.github.io/assets/built/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://gihwanJang.github.io/search" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/search" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
@@ -51,14 +51,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Search Result" />
     <meta property="og:description" content="coding 학습 블로그" />
-    <meta property="og:url" content="https://gihwanJang.github.io/search" />
-    <meta property="og:image" content="https://gihwanJang.github.io/assets/built/images/cover1.png" />
+    <meta property="og:url" content="http://localhost:4000/search" />
+    <meta property="og:image" content="http://localhost:4000/assets/built/images/cover1.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Search Result" />
     <meta name="twitter:description" content="coding 학습 블로그" />
-    <meta name="twitter:url" content="https://gihwanJang.github.io/" />
-    <meta name="twitter:image" content="https://gihwanJang.github.io/assets/built/images/cover1.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/built/images/cover1.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Learning to coding" />
     <meta name="twitter:site" content="@" />
@@ -73,18 +73,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Learning to coding",
-        "logo": "https://gihwanJang.github.io/"
+        "logo": "http://localhost:4000/"
     },
-    "url": "https://gihwanJang.github.io/search",
+    "url": "http://localhost:4000/search",
     "image": {
         "@type": "ImageObject",
-        "url": "https://gihwanJang.github.io/assets/built/images/cover1.png",
+        "url": "http://localhost:4000/assets/built/images/cover1.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://gihwanJang.github.io/search"
+        "@id": "http://localhost:4000/search"
     },
     "description": "coding 학습 블로그"
 }
@@ -119,7 +119,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://gihwanJang.github.io/">Learning to coding</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Learning to coding</a>
             
         
         
@@ -178,6 +178,15 @@ into the {body} of the default.hbs template -->
 <ul class="mylist" id="search-results"></ul>
 <script>
 window.store = {
+
+"leetcode-11": {
+"title": "leetcode - leetcode 11",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;길이 n의 정수 배열 height가 주어집니다.i번째 선이 두 끝점이 (i, 0), (i, height[i])가 되도록 n개의 수직선이 그려집니다.두개의 선으로 구성된 컨테이너에 가장 많은 물이 포함되도록 x축과 함께 컨테이너를 형성하는 두 개의 선을 찾으십시오.컨테이너가 저장할 수 있는 최대 물의 양을 반환하시오.단 용기를 기울이면 안 됩니다.&lt;Example1&gt;Input: height = [1,8,6,2,5,4,8,3,7]Output: 49&lt;Example2&gt;Input: height = [1,1]Output: 1&lt;설명&gt;        최대 넓이를 저장할 변수 max를 0의 값으로 선언해줍니다.            이중 for문을 통해 모든 직선에 대해 다른 직선들이 가지는 넓이를 계산합니다.    이때 특정 직선의 최대 넓이가 현재 max보다 작다면 해당 직선과 다른 직선 들을 비교하지 않고 넘어 갑니다.    위의 경우가 아니라면 특정 직선과 다른 직선으로 이루어진 넓이 즉 ((다른 직선 인덱스)-(특정 직선 인덱스)) * (다른 직선의 높이와 특정 직선의 높이중 낮은 높이)를 연산하여 해당 값이 max보다 크다면 해당 값으로 max를 초기화 시켜줍니다.            최종적으로 산출된 max를 반환합니다.    &lt;Code&gt;class Solution {    public int maxArea(int[] height) {        int max=0;        for(int i=0; i&lt;height.length-1; ++i) {        \tif((height.length-i-1)*height[i]&lt;max)continue;        \tfor(int j=i+1; j&lt;height.length; ++j) {        \t\tint hi=height[i]&lt;height[j]?height[i]:height[j];        \t\tif((j-i)*hi&gt;max)max=(j-i)*hi;        \t}        }        return max;    }}&lt;결과&gt;SuccessDetails Runtime: 300 ms, faster than 5.33% of Java online submissions for Container With Most Water.Memory Usage: 73.9 MB, less than 64.27% of Java online submissions for Container With Most Water.",
+"url": "/leetcode-11"
+}
+,
 
 "leetcode-171": {
 "title": "leetcode - leetcode 171",
@@ -595,7 +604,7 @@ $(function() {
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://gihwanJang.github.io/">Learning to coding</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Learning to coding</a> &copy; 2022</section>
                 <nav class="site-footer-nav">
                     <a href="/">Latest Posts</a>
                 </nav>
