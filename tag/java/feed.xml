@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="http://localhost:4000/tag/java/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2022-02-24T00:49:22+09:00</updated>
-  <id>http://localhost:4000/tag/java/feed.xml</id>
+  <link href="https://gihwanjang.github.io/tag/java/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-02-24T01:11:05+09:00</updated>
+  <id>https://gihwanjang.github.io/tag/java/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">java - java ch.01</title>
-      <link href="http://localhost:4000/java-ch01" rel="alternate" type="text/html" title="java - java ch.01" />
+      <link href="https://gihwanjang.github.io/java-ch01" rel="alternate" type="text/html" title="java - java ch.01" />
       <published>2021-12-22T00:40:00+09:00</published>
       <updated>2021-12-22T00:40:00+09:00</updated>
-      <id>http://localhost:4000/java-ch01</id>
-      <content type="html" xml:base="http://localhost:4000/java-ch01">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;Java Ch.01 : Java&lt;/p&gt;</content>
+      <id>https://gihwanjang.github.io/java-ch01</id>
+      <content type="html" xml:base="https://gihwanjang.github.io/java-ch01">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;Java Ch.01 : Java&lt;/p&gt;</content>
 
       
       
