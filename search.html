@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-35": {
+"title": "leetcode - leetcode 35",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;서로 다른 정수 배열과 타깃 값이 주어졌을 때, 배열에 있는 타깃 값의 인덱스를 반환하시오.만약 타깃 값이 배열에 없다면 배열에 삽입했을 때 위치할 인덱스를 반환하시오.반듯이 O(logn)의 실행시간안에 실행 되어야 합니다.&lt;Example1&gt;Input: nums = [1,3,5,6], target = 5Output: 2&lt;Example2&gt;Input: nums = [1,3,5,6], target = 2Output: 1&lt;Example2&gt;Input: nums = [1,3,5,6], target = 7Output: 4&lt;설명&gt;정렬된 배열에서 O(logn)의 실행 시간에 값을 찾기 위해서는 이진 탐색을 해야합니다.        이진 탐색을 위해 배열의 처음 인덱스와 끝 인덱스를 각각 lo, hi 변수로 선언 해줍니다.            while문을 통해 아래의 과정을 반복하여 중앙 값의 인덱스를 확인해 줍니다.                    중앙 인덱스를 선언하기 위해 중앙 인덱스의 값을 lo와 hi의 평균을 계산하여 mid로 선언해 줍니다.                        만약 해당 중앙 인덱스의 값이 타깃 값이면 해당 인덱스를 반환해 줍니다.                        만약 해당 중앙 인덱스의 값이 타깃 값보다 크면 타깃 값은 해당 중앙 값의 왼쪽 인덱스에 있으므로 hi를 mid-1로 바꿔 줍니다.                        위의 두경우를 제외하면 해당 타깃값은 중앙 인덱스 값보다 큰 경우가 되고 해당 경우 타깃 값은 중앙의 오른쪽 인덱스에 존재하므로 lo를 mid+1로 바꿔 줍니다.                        배열에 타깃 값이 없으면 위에서 반환되지 않으므로 반복이 끝나고 함수가 종료 되지 않으면 해당 타깃 값이 들어 가야할 위치인 lo의 값을 반환해 줍니다.    &lt;Code&gt;class Solution {    public int searchInsert(int[] nums, int target) {    \tint lo=0, hi=nums.length-1;\t\twhile(lo&lt;=hi){\t\t\tint mid=lo+(hi-lo)/2;\t\t\tif(nums[mid]==target) return mid;\t\t\telse if(nums[mid]&gt;target)hi=mid-1;\t\t\telse lo=mid+1;\t\t}\t\treturn lo;    }}&lt;결과&gt;SuccessDetails Runtime: 0 ms, faster than 100.00% of Java online submissions for Search Insert Position.Memory Usage: 41.4 MB, less than 45.38% of Java online submissions for Search Insert Position.",
+"url": "/leetcode-35"
+}
+,
+
 "datastructure-ch03-5": {
 "title": "DataStructure - 자료구조Ch.03-5",
 "author": "gihwan319",

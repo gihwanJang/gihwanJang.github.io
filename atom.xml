@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 35</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+서로 다른 정수 배열과 타깃 값이 주어졌을 때, 배열에 있는 타깃 값의 인덱스를 반환하시오.&lt;br /&gt;
+만약 타깃 값이 배열에 없다면 배열에 삽입했을 때 위치할 인덱스를 반환하시오.&lt;br /&gt;
+반듯이 O(logn)의 실행시간안에 실행 되어야 합니다.
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 26 Feb 2022 16:30:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-35</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-35</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>DataStructure - 자료구조Ch.03-5</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;
