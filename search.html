@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-338": {
+"title": "leetcode - leetcode 338",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;정수 n이 주어졌을 때, 각 인덱스 i(0&lt;=i&lt;=n)가 해당 정수 i를 이진수로 변환 변환했을 때 1의 갯수를 저장하는 배열 ans배열을 반환하시오.&lt;Example1&gt;Input: n = 2Output: [0,1,1]&lt;Example2&gt;Input: n = 5Output: [0,1,1,2,1,2]&lt;설명&gt;        각 비트를 저장할 배열을 n+1의 크기로 선언해줍니다.            for문을 통해 0~n까지 인덱스에 접근합니다.    해당 인덱스의 비트에 끝이 0이면 i/2한 인덱스 값의 마지막 비트에 0을 추가한 것과 같기 때문에 해당 인덱스의 값을 그대로 받아오고 1일 경우 i/2한 인덱스 값의 마지막 비트에 1을 추가한 것과 같기때문에 해당 인덱스의 값에 1을 더한 값을 저장합니다.            배열을 반환해 줍니다.    &lt;Code&gt;class Solution {   public int[] countBits(int n) {        int[] bits = new int[n+1];        for(int i=0; i&lt;=n; ++i)        \tbits[i]= i%2==0?bits[i/2]:bits[i/2]+1;        return bits;    }}&lt;결과&gt;SuccessDetails Runtime: 2 ms, faster than 82.30% of Java online submissions for Counting Bits.Memory Usage: 48.3 MB, less than 19.74% of Java online submissions for Counting Bits.Next challenges:",
+"url": "/leetcode-338"
+}
+,
+
 "leetcode-228": {
 "title": "leetcode - leetcode 228",
 "author": "gihwan319",
