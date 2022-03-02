@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-392": {
+"title": "leetcode - leetcode 392",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;두 문자열 s, t 가 주어졌을 때, 문자열 s가 문자열 t의 하위 요소일 경우 true 아닐경우 false를 반환하시오.문자열의 하위 요소는 나머지 문자의 위치를 변경하지 않고 문자 중 일부를 삭제하여 원래 문자열에서 형성된 새로운 문자열입니다.&lt;Example1&gt;Input:s = \"abc\", t = \"ahbgdc\"Output: true&lt;Example2&gt;Input: s = \"axc\", t = \"ahbgdc\"Output: false&lt;설명&gt;        s의 문자열이 빈 문자열이면 항상 true이므로 true를 반환해 줍니다.            for문을 통해 t의 문자열의 모든 문자에 접근하며 s의 문자열의 처음 인덱스와 비교합니다.    이때 해당 문자가 같으면 s문자열의 인덱스를 증가 시켜줍니다.    s문자열의 인덱스가 s문자열의 길이가 되면 s문자열의 모든 문자를 t문자열이 포함하고 있으므로 true를 반환합니다.            위의 반복문에서 true를 반환하지 않은 경우 false를 반환합니다.    &lt;Code&gt;class Solution {    public boolean isSubsequence(String s, String t) {    \tif(s.length()==0)return true;    \t    \tfor(int i=0, j=0; i&lt;t.length(); ++i) {    \t\tif(t.charAt(i)==s.charAt(j))++j;    \t\tif(j==s.length())return true;    \t}    \t        return false;    }}&lt;결과&gt;SuccessDetails Runtime: 1 ms, faster than 88.36% of Java online submissions for Is Subsequence.Memory Usage: 39.9 MB, less than 56.87% of Java online submissions for Is Subsequence.",
+"url": "/leetcode-392"
+}
+,
+
 "leetcode-338": {
 "title": "leetcode - leetcode 338",
 "author": "gihwan319",

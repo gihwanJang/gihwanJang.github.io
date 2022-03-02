@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-01T16:22:47+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 338</title><link href="https://gihwanjang.github.io/leetcode-338" rel="alternate" type="text/html" title="leetcode - leetcode 338" /><published>2022-03-01T16:00:00+09:00</published><updated>2022-03-01T16:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-338</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-338">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-02T09:48:29+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 392</title><link href="https://gihwanjang.github.io/leetcode-392" rel="alternate" type="text/html" title="leetcode - leetcode 392" /><published>2022-03-02T09:40:00+09:00</published><updated>2022-03-02T09:40:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-392</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-392">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+두 문자열 s, t 가 주어졌을 때, 문자열 s가 문자열 t의 하위 요소일 경우 true 아닐경우 false를 반환하시오.&lt;br /&gt;
+문자열의 하위 요소는 나머지 문자의 위치를 변경하지 않고 문자 중 일부를 삭제하여 원래 문자열에서 형성된 새로운 문자열입니다.
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input:s = &quot;abc&quot;, t = &quot;ahbgdc&quot;&lt;br /&gt;
+Output: true
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: s = &quot;axc&quot;, t = &quot;ahbgdc&quot;&lt;br /&gt;
+Output: false
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    s의 문자열이 빈 문자열이면 항상 true이므로 true를 반환해 줍니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    for문을 통해 t의 문자열의 모든 문자에 접근하며 s의 문자열의 처음 인덱스와 비교합니다.&lt;br /&gt;
+    이때 해당 문자가 같으면 s문자열의 인덱스를 증가 시켜줍니다.&lt;br /&gt;
+    s문자열의 인덱스가 s문자열의 길이가 되면 s문자열의 모든 문자를 t문자열이 포함하고 있으므로 true를 반환합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    위의 반복문에서 true를 반환하지 않은 경우 false를 반환합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isSubsequence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 1 ms, faster than 88.36% of Java online submissions for Is Subsequence.&lt;br /&gt;
+Memory Usage: 39.9 MB, less than 56.87% of Java online submissions for Is Subsequence.
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 두 문자열 s, t 가 주어졌을 때, 문자열 s가 문자열 t의 하위 요소일 경우 true 아닐경우 false를 반환하시오. 문자열의 하위 요소는 나머지 문자의 위치를 변경하지 않고 문자 중 일부를 삭제하여 원래 문자열에서 형성된 새로운 문자열입니다.</summary></entry><entry><title type="html">leetcode - leetcode 338</title><link href="https://gihwanjang.github.io/leetcode-338" rel="alternate" type="text/html" title="leetcode - leetcode 338" /><published>2022-03-01T16:00:00+09:00</published><updated>2022-03-01T16:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-338</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-338">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
 &lt;p&gt;
 정수 n이 주어졌을 때, 각 인덱스 i(0&amp;lt;=i&amp;lt;=n)가 해당 정수 i를 이진수로 변환 변환했을 때 1의 갯수를 저장하는 배열 ans배열을 반환하시오.
 &lt;/p&gt;
@@ -953,91 +1010,4 @@ Success&lt;br /&gt;
 Details &lt;br /&gt;
 Runtime: 0 ms, faster than 100.00% of Java online submissions for Swap Nodes in Pairs.&lt;br /&gt;
 Memory Usage: 39.7 MB, less than 60.55% of Java online submissions for Swap Nodes in Pairs.
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 연결 리스트가 주어지면 인접한 모ㄴ 두 노드의 위치를 바꾸고 head를 반환하시오. 이때 리스트의 노드에 있는 값을 수정하지 않고 문제를 해결해야 합니다. (즉, 노드 자체만 변경될 수 있음).</summary></entry><entry><title type="html">leetcode - leetcode 21</title><link href="https://gihwanjang.github.io/leetcode-21" rel="alternate" type="text/html" title="leetcode - leetcode 21" /><published>2022-02-19T01:00:00+09:00</published><updated>2022-02-19T01:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-21</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-21">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-정렬된 연결 리스트 list1과 list2의 head가 주어집니다.&lt;br /&gt;
-두 리스트를 하나의 정렬리스트로 합병합니다.&lt;br /&gt;
-처음의 두 리스트의 노드를 연결하여 리스트를 만들어야합니다.&lt;br /&gt;
-합병한 연결 리스트의 head를 반환하시오.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg&quot; alt=&quot;leetcode902&quot; /&gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: list1 = [1,2,4], list2 = [1,3,4]&lt;br /&gt;
-Output: [1,1,2,3,4,4]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: list1 = [], list2 = []&lt;br /&gt;
-Output: []
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: list1 = [], list2 = [0]&lt;br /&gt;
-Output: [0]
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    while문을 통해 아래의 과정을 반복하며 합병정렬합니다.&lt;br /&gt;
-    이때 종료조건은 list2가 null이 되면 종료합니다.
-    &lt;ul class=&quot;txt-box&quot;&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        list2의 노드를 추가하는 노드로 별도 선언하고 list2는 list의 next 즉 다음 노드로 이동시켜줍니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        list1을 선형 검색하기 위해 list1의 head를 받는 curr노드를 선언해 줍니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        list2의 노드를 list1에 합병하기위해 curr노드의 전노드를 저장하는 prev노드를 선언해 줍니다.&lt;br /&gt;
-        이때 초기는 더미노드를 값으로 설정하고 해당 더미 노드의 next를 curr로 설정해 줍니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        while문을 통해 list1에서 추가하는 노드의 값보다 처음으로 큰 노드까지 curr와 prev를 이동시킵니다.
-        &lt;/li&gt;
-        &lt;li class=&quot;txt-box__list&quot;&gt;
-        prev노드의 next를 추가하는 노드에 이어주고 추가하는 노드의 next를 curr노드에 이어줍니다.&lt;br /&gt;
-        이때 curr노드가 그대로 list1의 head이면 추가하는 노드가 head의 값보다 작거나 같음으로 list1의 head를 추가한 노드로 바꿔 줍니다.
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    위의 반복이 끝나면 list1을 반환해 줍니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Coding&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mergeTwoLists&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    		&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ListNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    			&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    			&lt;span class=&quot;n&quot;&gt;prev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    		&lt;span class=&quot;n&quot;&gt;prev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-Success&lt;br /&gt;
-Details &lt;br /&gt;
-Runtime: 1 ms, faster than 62.60% of Java online submissions for Merge Two Sorted Lists.&lt;br /&gt;
-Memory Usage: 43.3 MB, less than 12.18% of Java online submissions for Merge Two Sorted Lists.
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 정렬된 연결 리스트 list1과 list2의 head가 주어집니다. 두 리스트를 하나의 정렬리스트로 합병합니다. 처음의 두 리스트의 노드를 연결하여 리스트를 만들어야합니다. 합병한 연결 리스트의 head를 반환하시오.</summary></entry></feed>
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; 연결 리스트가 주어지면 인접한 모ㄴ 두 노드의 위치를 바꾸고 head를 반환하시오. 이때 리스트의 노드에 있는 값을 수정하지 않고 문제를 해결해야 합니다. (즉, 노드 자체만 변경될 수 있음).</summary></entry></feed>
