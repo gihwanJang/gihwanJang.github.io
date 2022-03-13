@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-20": {
+"title": "leetcode - leetcode 20",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;'(', ')', '{', '}', '[', ']'의 문자만을 포함한 문자열 s가 주어졌을 때, 입력된 문자열이 유효한지 확인하시오유효한 문자열 :         열린 괄호는 동일한 유형의 괄호로 닫아야 합니다.            열린 괄호는 올바른 순서로 닫혀야 합니다.    &lt;Example1&gt;Input: s = \"()\"Output: true&lt;Example2&gt;Input: s = \"()[]{}\"Output: true&lt;Example3&gt;Input: s = \"(]\"Output: false&lt;설명&gt;        괄호는 쌍으로 존재하므로 문자열의 길이가 홀수이면 false를 반환합니다.            유효한 괄호들을 삭제하며 확인 할 것이기 때문에 기변 문자열인 StringBuilder를 통해 s와 동일한 문자열 sb를 생성합니다.            for문을 통해 유효한 쌍 즉 \"()\", \"{}\", \"{}\"인 경우를 찾습니다.            찾은 쌍을 기준으로 deletBrackets함수를 이용하여 좌우 유효한 쌍들을 찾고 모든 유효한 쌍들을 삭제합니다.            위의 과정을 문자열 끝까지 반복하면 문자열이 유효했다면 문자열은 남는 것이 없을 것이므로 문자열이 길이가 0이면 true 아니면 false를 반환합니다.    &lt;Code&gt;class Solution {\tprivate int deletBrackets(StringBuilder sb, int start, int end) {\t\tif(start-1&lt;0||end&gt;sb.length()-1)sb.delete(start, end);\t\telse if(sb.charAt(end)-sb.charAt(start-1)==1||sb.charAt(end)-sb.charAt(start-1)==2)\t\t\treturn deletBrackets(sb,start-1,end+1);\t\telse\t\t\tsb.delete(start, end);        return start;\t}    public boolean isValid(String s) {    \tif(s.length()%2==1)return false;    \tStringBuilder sb= new StringBuilder(s);    \t    \tfor(int i=0; i&lt;sb.length()-1;){    \t\tif(sb.charAt(i+1)-sb.charAt(i)==1||sb.charAt(i+1)-sb.charAt(i)==2)    \t\t\ti=deletBrackets(sb,i,i+2);            else ++i;        }            \tif(sb.length()&gt;0)return false;        else return true;    }}&lt;결과&gt;SuccessDetails Runtime: 1 ms, faster than 99.46% of Java online submissions for Valid Parentheses.Memory Usage: 42.2 MB, less than 23.99% of Java online submissions for Valid Parentheses.",
+"url": "/leetcode-20"
+}
+,
+
 "algorithm-ch01": {
 "title": "algorithm - algorithm ch.01",
 "author": "gihwan319",

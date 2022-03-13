@@ -8,6 +8,33 @@
     
       
       <item>
+        <title>leetcode - leetcode 20</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+'(', ')', '{', '}', '[', ']'의 문자만을 포함한 문자열 s가 주어졌을 때, 입력된 문자열이 유효한지 확인하시오&lt;br /&gt;
+유효한 문자열 : 
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    열린 괄호는 동일한 유형의 괄호로 닫아야 합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    열린 괄호는 올바른 순서로 닫혀야 합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 13 Mar 2022 13:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-20</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-20</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>algorithm - algorithm ch.01</title>
         
           <description>&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;algorithm Ch.01 : Big-O&lt;/p&gt;

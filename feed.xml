@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-13T07:14:49+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">algorithm - algorithm ch.01</title><link href="https://gihwanjang.github.io/algorithm-ch01" rel="alternate" type="text/html" title="algorithm - algorithm ch.01" /><published>2022-03-06T21:00:00+09:00</published><updated>2022-03-06T21:00:00+09:00</updated><id>https://gihwanjang.github.io/algorithm-ch01</id><content type="html" xml:base="https://gihwanjang.github.io/algorithm-ch01">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;algorithm Ch.01 : Big-O&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://gihwanjang.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" /><updated>2022-03-13T13:11:13+09:00</updated><id>https://gihwanjang.github.io/feed.xml</id><title type="html">Learning to coding</title><subtitle>coding 학습 블로그</subtitle><entry><title type="html">leetcode - leetcode 20</title><link href="https://gihwanjang.github.io/leetcode-20" rel="alternate" type="text/html" title="leetcode - leetcode 20" /><published>2022-03-13T13:00:00+09:00</published><updated>2022-03-13T13:00:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-20</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-20">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+'(', ')', '{', '}', '[', ']'의 문자만을 포함한 문자열 s가 주어졌을 때, 입력된 문자열이 유효한지 확인하시오&lt;br /&gt;
+유효한 문자열 : 
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    열린 괄호는 동일한 유형의 괄호로 닫아야 합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    열린 괄호는 올바른 순서로 닫혀야 합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: s = &quot;()&quot;&lt;br /&gt;
+Output: true
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: s = &quot;()[]{}&quot;&lt;br /&gt;
+Output: true
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example3&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: s = &quot;(]&quot;&lt;br /&gt;
+Output: false
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    괄호는 쌍으로 존재하므로 문자열의 길이가 홀수이면 false를 반환합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    유효한 괄호들을 삭제하며 확인 할 것이기 때문에 기변 문자열인 StringBuilder를 통해 s와 동일한 문자열 sb를 생성합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    for문을 통해 유효한 쌍 즉 &quot;()&quot;, &quot;{}&quot;, &quot;{}&quot;인 경우를 찾습니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    찾은 쌍을 기준으로 deletBrackets함수를 이용하여 좌우 유효한 쌍들을 찾고 모든 유효한 쌍들을 삭제합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    위의 과정을 문자열 끝까지 반복하면 문자열이 유효했다면 문자열은 남는 것이 없을 것이므로 문자열이 길이가 0이면 true 아니면 false를 반환합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deletBrackets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deletBrackets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    	&lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    	
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;){&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    			&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deletBrackets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 1 ms, faster than 99.46% of Java online submissions for Valid Parentheses.&lt;br /&gt;
+Memory Usage: 42.2 MB, less than 23.99% of Java online submissions for Valid Parentheses.
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; '(', ')', '{', '}', '[', ']'의 문자만을 포함한 문자열 s가 주어졌을 때, 입력된 문자열이 유효한지 확인하시오 유효한 문자열 : 열린 괄호는 동일한 유형의 괄호로 닫아야 합니다. 열린 괄호는 올바른 순서로 닫혀야 합니다.</summary></entry><entry><title type="html">algorithm - algorithm ch.01</title><link href="https://gihwanjang.github.io/algorithm-ch01" rel="alternate" type="text/html" title="algorithm - algorithm ch.01" /><published>2022-03-06T21:00:00+09:00</published><updated>2022-03-06T21:00:00+09:00</updated><id>https://gihwanjang.github.io/algorithm-ch01</id><content type="html" xml:base="https://gihwanjang.github.io/algorithm-ch01">&lt;p style=&quot;font-size: 23px; font-weight: bold; color: indianred; text-shadow: 1px 1px 1.2px midnightblue;&quot;&gt;algorithm Ch.01 : Big-O&lt;/p&gt;
 
 &lt;p style=&quot;font-size: 20px; font-weight: bold; color: green; midnightblue;&quot;&gt;
 &amp;lt;알고리즘&amp;gt;
@@ -1010,81 +1096,4 @@ Details &lt;br /&gt;
 Runtime: 3 ms, faster than 64.69% of Java online submissions for Majority Element.&lt;br /&gt;
 Memory Usage: 56 MB, less than 21.51% of Java online submissions for Majority Element.
 Next challenges:
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오. 대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다. 대부분의 값은 항상 존재한다고 가정합니다.</summary></entry><entry><title type="html">leetcode - leetcode 50</title><link href="https://gihwanjang.github.io/leetcode-50" rel="alternate" type="text/html" title="leetcode - leetcode 50" /><published>2022-02-20T22:20:00+09:00</published><updated>2022-02-20T22:20:00+09:00</updated><id>https://gihwanjang.github.io/leetcode-50</id><content type="html" xml:base="https://gihwanjang.github.io/leetcode-50">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-x의 n제곱을 계산하는 pow(x, n)를 구현하시오.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: x = 2.00000, n = 10&lt;br /&gt;
-Output: 1024.00000
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: x = 2.10000, n = 3&lt;br /&gt;
-Output: 9.26100
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: x = 2.00000, n = -2&lt;br /&gt;
-Output: 0.25000
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    거듭제곱의 수 상광 없이 일정한 x 즉 x값이 1또는 0일 경우 x를 반환합니다.&lt;br /&gt;
-    또한 x가 -1일 경우 거듭제곱 수 n이 짝수면 -x 홀수면 x를 반환합니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    x의 n제곱을 저장할 변수 p를 선언후 1로 초기화 해줍니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    거듭제곱 수 n이 양수이면 for문을 통해 n만큼 p에 x를 곱합니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    거듭제곱 수 n이 음수이면 for문을 통해 n만큼 p에 x를 나눕니다.
-    &lt;/li&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    p를 반환합니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;myPow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    		&lt;span class=&quot;nf&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-Success&lt;br /&gt;
-Details &lt;br /&gt;
-Runtime: 6 ms, faster than 5.90% of Java online submissions for Pow(x, n).&lt;br /&gt;
-Memory Usage: 42.3 MB, less than 27.65% of Java online submissions for Pow(x, n).
-Next challenges:
-&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; x의 n제곱을 계산하는 pow(x, n)를 구현하시오.</summary></entry></feed>
+&lt;/p&gt;</content><author><name>gihwan319</name></author><category term="leetcode" /><summary type="html">&amp;lt;문제&amp;gt; n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오. 대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다. 대부분의 값은 항상 존재한다고 가정합니다.</summary></entry></feed>
