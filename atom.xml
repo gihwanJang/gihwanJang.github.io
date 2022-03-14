@@ -8,6 +8,26 @@
     
       
       <item>
+        <title>leetcode - leetcode 71</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Unix 운영체제의 시스템의 파일 또는 디렉토리에 대한 절대 경로(슬래시 '/'로 시작)인 문자열 경로가 주어지면 이를 단순화된 표준 경로로 변환합니다.&lt;br /&gt;
+Unix 운영체제 파일 시스템에서 마침표 '.'는 현재 디렉토리를 참조하고 이중 마침표 '..'는 상위의 디렉토리를 참조하며 연속된 여러 개의 슬래시(즉, '//')는 단일 슬래시 '/'로 처리됩니다.&lt;br /&gt;
+이 문제의 경우 '...'와 같은 다른 형식의 마침표는 파일/디렉토리 이름으로 처리됩니다.&lt;br /&gt;
+
+&lt;/p&gt;
+</description>
+        
+        <pubDate>Tue, 15 Mar 2022 00:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-71</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-71</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 20</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;

@@ -179,6 +179,15 @@ into the {body} of the default.hbs template -->
 <script>
 window.store = {
 
+"leetcode-71": {
+"title": "leetcode - leetcode 71",
+"author": "gihwan319",
+"category": "",
+"content": "&lt;문제&gt;Unix 운영체제의 시스템의 파일 또는 디렉토리에 대한 절대 경로(슬래시 '/'로 시작)인 문자열 경로가 주어지면 이를 단순화된 표준 경로로 변환합니다.Unix 운영체제 파일 시스템에서 마침표 '.'는 현재 디렉토리를 참조하고 이중 마침표 '..'는 상위의 디렉토리를 참조하며 연속된 여러 개의 슬래시(즉, '//')는 단일 슬래시 '/'로 처리됩니다.이 문제의 경우 '...'와 같은 다른 형식의 마침표는 파일/디렉토리 이름으로 처리됩니다.표준 경로의 형식은 다음과 같아야 합니다.        경로는 단일 슬래시 '/'로 시작합니다.            두 디렉토리는 단일 슬래시 '/'로 구분됩니다.            경로는 후행 '/'로 끝나지 않습니다.            경로에는 루트 디렉터리에서 대상 파일 또는 디렉터리까지의 경로에 있는 디렉터리만 포함됩니다.(즉, 마침표 '.' 또는 이중 마침표 '..' 없음)            단순화된 표준 경로를 반환합니다.    &lt;Example1&gt;Input: path = \"/home/\"Output: \"/home\"&lt;Example2&gt;Input: path = \"/../\"Output: \"/\"&lt;Example3&gt;Input: path = \"/home//foo/\"Output: \"/home/foo\"&lt;설명&gt;        반환할 path의 문자열을 만들 StringBuilder인 pathSb를 생성합니다.            입력받은 문자열을 split메소드를 이용해 \"/\"기준으로 잘라 dir배열을 만듭니다.            for문을 통해 dir배열을 역순으로 참조하며 아래의 과정을 반복해 줍니다.                    만약 dir[i]의 값이 \"..\"인 경우 카운트를 증가시킵니다.                        위의 경우도 아니고 dir[i]가 \"\"도 아니고 \".\"도 아닐 경우 즉 정확한 디렉토리명일 경우        count가 0보다 크면 상위 디렉토리를 호출한 것이므로 해당 디렉토리를 뛰어 넘어야하므로 카운트만 감소시킵니다.        count가 0일 경우 상위 디렉토리를 호출하지 않았으므로 pathSb의 앞에 (\"/\"+디렉토리명)을 삽입해 줍니다.                        최종적으로 pathSb가 isEmpty가 아닌 경우 pathSb를 반환하고 isEmpty인 경우 \"/\"을 반환합니다.    &lt;Code&gt;class Solution {\tpublic String simplifyPath(String path) {    \tStringBuilder pathSb = new StringBuilder();    \tString[] dir = path.split(\"/\");    \t    \tfor(int i=dir.length-1,count=0; i&gt;-1; --i) {    \t\tif(dir[i].compareTo(\"..\")==0)++count;    \t\telse if(dir[i]!=\"\"&amp;&amp;dir[i].compareTo(\".\")!=0) {    \t\t\tif(count&gt;0)--count;    \t\t\telse pathSb.insert(0, \"/\"+dir[i]);    \t\t}    \t}    \t\t    \tif(!pathSb.isEmpty())return pathSb.toString();    \telse return \"/\";    }}&lt;결과&gt;SuccessDetails Runtime: 3 ms, faster than 98.96% of Java online submissions for Simplify Path.Memory Usage: 41.9 MB, less than 77.50% of Java online submissions for Simplify Path.",
+"url": "/leetcode-71"
+}
+,
+
 "leetcode-20": {
 "title": "leetcode - leetcode 20",
 "author": "gihwan319",

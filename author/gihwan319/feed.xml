@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://gihwanjang.github.io/author/gihwan319/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://gihwanjang.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-03-13T13:11:13+09:00</updated>
+  <updated>2022-03-15T07:51:43+09:00</updated>
   <id>https://gihwanjang.github.io/author/gihwan319/feed.xml</id>
 
   
@@ -30,6 +30,139 @@
   
   
 
+  
+    <entry>
+      <title type="html">leetcode - leetcode 71</title>
+      <link href="https://gihwanjang.github.io/leetcode-71" rel="alternate" type="text/html" title="leetcode - leetcode 71" />
+      <published>2022-03-15T00:00:00+09:00</published>
+      <updated>2022-03-15T00:00:00+09:00</updated>
+      <id>https://gihwanjang.github.io/leetcode-71</id>
+      <content type="html" xml:base="https://gihwanjang.github.io/leetcode-71">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Unix 운영체제의 시스템의 파일 또는 디렉토리에 대한 절대 경로(슬래시 '/'로 시작)인 문자열 경로가 주어지면 이를 단순화된 표준 경로로 변환합니다.&lt;br /&gt;
+Unix 운영체제 파일 시스템에서 마침표 '.'는 현재 디렉토리를 참조하고 이중 마침표 '..'는 상위의 디렉토리를 참조하며 연속된 여러 개의 슬래시(즉, '//')는 단일 슬래시 '/'로 처리됩니다.&lt;br /&gt;
+이 문제의 경우 '...'와 같은 다른 형식의 마침표는 파일/디렉토리 이름으로 처리됩니다.&lt;br /&gt;
+
+표준 경로의 형식은 다음과 같아야 합니다.&lt;br /&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    경로는 단일 슬래시 '/'로 시작합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    두 디렉토리는 단일 슬래시 '/'로 구분됩니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    경로는 후행 '/'로 끝나지 않습니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    경로에는 루트 디렉터리에서 대상 파일 또는 디렉터리까지의 경로에 있는 디렉터리만 포함됩니다.&lt;br /&gt;(즉, 마침표 '.' 또는 이중 마침표 '..' 없음)
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    단순화된 표준 경로를 반환합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: path = &quot;/home/&quot;&lt;br /&gt;
+Output: &quot;/home&quot;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: path = &quot;/../&quot;&lt;br /&gt;
+Output: &quot;/&quot;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;Example3&amp;gt;&lt;/p&gt;
+&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
+Input: path = &quot;/home//foo/&quot;&lt;br /&gt;
+Output: &quot;/home/foo&quot;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    반환할 path의 문자열을 만들 StringBuilder인 pathSb를 생성합니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    입력받은 문자열을 split메소드를 이용해 &quot;/&quot;기준으로 잘라 dir배열을 만듭니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    for문을 통해 dir배열을 역순으로 참조하며 아래의 과정을 반복해 줍니다.
+    &lt;ul class=&quot;txt-box&quot;&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        만약 dir[i]의 값이 &quot;..&quot;인 경우 카운트를 증가시킵니다.
+        &lt;/li&gt;
+        &lt;li class=&quot;txt-box__list&quot;&gt;
+        위의 경우도 아니고 dir[i]가 &quot;&quot;도 아니고 &quot;.&quot;도 아닐 경우 즉 정확한 디렉토리명일 경우&lt;br /&gt;
+        count가 0보다 크면 상위 디렉토리를 호출한 것이므로 해당 디렉토리를 뛰어 넘어야하므로 카운트만 감소시킵니다.&lt;br /&gt;
+        count가 0일 경우 상위 디렉토리를 호출하지 않았으므로 pathSb의 앞에 (&quot;/&quot;+디렉토리명)을 삽입해 줍니다.
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    최종적으로 pathSb가 isEmpty가 아닌 경우 pathSb를 반환하고 isEmpty인 경우 &quot;/&quot;을 반환합니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;simplifyPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathSb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    	&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    	
+    	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;..&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]!=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)!=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathSb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+    		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    		
+    	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pathSb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathSb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+Success&lt;br /&gt;
+Details &lt;br /&gt;
+Runtime: 3 ms, faster than 98.96% of Java online submissions for Simplify Path.&lt;br /&gt;
+Memory Usage: 41.9 MB, less than 77.50% of Java online submissions for Simplify Path.
+&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>gihwan319</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="leetcode" />
+      
+
+      
+        <summary type="html">&amp;lt;문제&amp;gt; Unix 운영체제의 시스템의 파일 또는 디렉토리에 대한 절대 경로(슬래시 '/'로 시작)인 문자열 경로가 주어지면 이를 단순화된 표준 경로로 변환합니다. Unix 운영체제 파일 시스템에서 마침표 '.'는 현재 디렉토리를 참조하고 이중 마침표 '..'는 상위의 디렉토리를 참조하며 연속된 여러 개의 슬래시(즉, '//')는 단일 슬래시 '/'로 처리됩니다. 이 문제의 경우 '...'와 같은 다른 형식의 마침표는 파일/디렉토리 이름으로 처리됩니다.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">leetcode - leetcode 20</title>
@@ -1384,85 +1517,6 @@ Memory Usage: 42.8 MB, less than 22.96% of Java online submissions for Excel She
 
       
         <summary type="html">&amp;lt;문제&amp;gt; 엑셀의 열의 번호를 나타내는 문자열 columnTitle이 주어 졌을 때 이것과 일치하는 열 번호를 반환하시오. For example: A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28 ...</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">leetcode - leetcode 169</title>
-      <link href="https://gihwanjang.github.io/leetcode-169" rel="alternate" type="text/html" title="leetcode - leetcode 169" />
-      <published>2022-02-21T18:40:00+09:00</published>
-      <updated>2022-02-21T18:40:00+09:00</updated>
-      <id>https://gihwanjang.github.io/leetcode-169</id>
-      <content type="html" xml:base="https://gihwanjang.github.io/leetcode-169">&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오.&lt;br /&gt;
-대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다.&lt;br /&gt;
-대부분의 값은 항상 존재한다고 가정합니다.
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Example1&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: nums = [3,2,3]&lt;br /&gt;
-Output: 3
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;Example2&amp;gt;&lt;/p&gt;
-&lt;div style=&quot;border: 1px solid black; paddling: 10px&quot;&gt;
-Input: nums = [2,2,1,1,1,2,2]&lt;br /&gt;
-Output: 2
-&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;설명&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-&lt;ul class=&quot;txt-box&quot;&gt;
-    &lt;li class=&quot;txt-box__list&quot;&gt;
-    대부분을 차지하는 값은 배열에 n/2의 갯수 만큼 들어가 있으므로 배열을 정렬했을 때 해당 배열의 중앙에 대부분을 차지하는 값이 배치되므로 중앙값을 반환하면 됩니다.
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;Code&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;majorityElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    	&lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;결과&amp;gt;&lt;/p&gt;
-&lt;p&gt;
-Success&lt;br /&gt;
-Details &lt;br /&gt;
-Runtime: 3 ms, faster than 64.69% of Java online submissions for Majority Element.&lt;br /&gt;
-Memory Usage: 56 MB, less than 21.51% of Java online submissions for Majority Element.
-Next challenges:
-&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>gihwan319</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="leetcode" />
-      
-
-      
-        <summary type="html">&amp;lt;문제&amp;gt; n크기의 nums배열이 주어졌을 때, 대분을 차지하는 값을 반환하시오. 대부분을 차지하는 값은 n/2의 크기 만큼 존재한는 값입니다. 대부분의 값은 항상 존재한다고 가정합니다.</summary>
       
 
       
