@@ -8,6 +8,33 @@
     
       
       <item>
+        <title>leetcode - leetcode 74</title>
+        
+          <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
+&lt;p&gt;
+m x n 정수 행렬 행렬에서 값 목표를 찾는 효율적인 알고리즘을 작성하십시오.&lt;br /&gt;
+이 행렬에는 다음과 같은 속성이 있습니다.
+&lt;ul class=&quot;txt-box&quot;&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    각 행의 정수는 왼쪽에서 오른쪽으로 정렬됩니다.
+    &lt;/li&gt;
+    &lt;li class=&quot;txt-box__list&quot;&gt;
+    각 행의 첫 번째 정수는 이전 행의 마지막 정수보다 큽니다.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 31 Mar 2022 06:00:00 +0900</pubDate>
+        <link>
+        https://gihwanJang.github.io/leetcode-74</link>
+        <guid isPermaLink="true">https://gihwanJang.github.io/leetcode-74</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>leetcode - leetcode 53</title>
         
           <description>&lt;p&gt;&amp;lt;문제&amp;gt;&lt;/p&gt;
